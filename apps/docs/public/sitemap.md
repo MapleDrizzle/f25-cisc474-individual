@@ -1,18 +1,17 @@
-
 # Site Map (Frontend Pages)
 
 ```mermaid
 flowchart TD
-    L[Login / Sign Up] --> D[Student Dashboard]
+    L[Login / Sign Up] --> D[Student Dashboard (Kitchen)]
     L --> ID[Instructor Dashboard]
     L --> AD[Admin Console]
 
-    D --> C[Course (Kitchen) Home]
-    C --> A[Assignment (Recipe) List]
-    A --> AP[Assignment (Recipe) Page]
-    AP --> P[Problem (Step) View]
-    P --> S[Submit (Bake Station)]
-    S --> R[Results (Taste Test & Tasting Notes)]
+    D --> C[Course Home (Recipe Book)]
+    C --> A[Assignment List (Recipe)]
+    A --> AP[Assignment Page (Recipe)]
+    AP --> P[Problem View (Step)]
+    P --> S[Submit (Bake)]
+    S --> R[Results (Customer Review)]
 
     ID --> IC[Instructor Course Home]
     IC --> IA[Assignment Builder]
