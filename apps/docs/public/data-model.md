@@ -16,13 +16,13 @@ erDiagram
     ASSIGNMENT ||--o{ RUBRICITEM : scoredBy
     SUBMISSION ||--o{ RUBRICSCORE : resultsIn
     SUBMISSION ||--o{ BAKERUN : mayHave
+
     USER {
       uuid id PK
       string name
       string email UNIQ
-      enum role
+      enum role  "student|instructor|admin"
     }
-    %% role values: Baker, Head Baker, Bakery Manager
     COURSE {
       uuid id PK
       string title
@@ -34,9 +34,8 @@ erDiagram
       uuid id PK
       uuid userId FK
       uuid courseId FK
-      enum role
+      enum role "student|ta|instructor"
     }
-    %% role values: Baker, Head Baker, Bakery Manager
     ASSIGNMENT {
       uuid id PK
       uuid courseId FK
