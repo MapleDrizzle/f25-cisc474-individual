@@ -25,8 +25,4 @@ flowchart TD
     AD --> U[User Management]
     AD --> SYS[System Settings]
     AD --> AUD[Audit Logs]
-
-- `/instructor/courses/:courseId` (owner view)
-- `/instructor/assignments/new` and `/instructor/assignments/:assignmentId/edit`
-- `/instructor/gradebook/:courseId`
-- `/admin/users`, `/admin/settings`, `/admin/audit`
+```
