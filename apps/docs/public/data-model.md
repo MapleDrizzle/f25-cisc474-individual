@@ -3,20 +3,6 @@
 
 ```mermaid
 erDiagram
-    USER ||--o{ ENROLLMENT : has
-    COURSE ||--o{ ENROLLMENT : includes
-    COURSE ||--o{ ASSIGNMENT : contains
-    ASSIGNMENT ||--o{ PROBLEM : has
-    PROBLEM ||--o{ TESTCASE : includes
-    ASSIGNMENT ||--o{ SUBMISSION : receives
-    USER ||--o{ SUBMISSION : makes
-    SUBMISSION ||--o{ FEEDBACK : gets
-    SUBMISSION ||--o{ ARTIFACT : produces
-    SUBMISSION ||--o{ COMMENT : has
-    ASSIGNMENT ||--o{ RUBRICITEM : scoredBy
-    SUBMISSION ||--o{ RUBRICSCORE : resultsIn
-    SUBMISSION ||--o{ BAKERUN : mayHave
-
     USER {
       uuid id PK
       string name
@@ -121,8 +107,3 @@ erDiagram
       datetime createdAt
     }
 ```
-
-## Notes
-- **Submission.type** supports the unique **bakerun** path.
-- **Feedback.anchors** allow inline comments in code files **or** timestamps in logs.
-- Files stored in object storage; `ARTIFACT.path` is a key, not a filesystem path.
