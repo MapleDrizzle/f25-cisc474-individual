@@ -18,7 +18,6 @@ flowchart TD
     IC --> IA[Assignment Builder]
     IA --> IP[Problem Editor]
     IA --> IR[Rubric & Tests Config]
-    IA --> IBR[Bake Run Template]
 
     ID --> G[Gradebook]
     G --> GR[Grade Review / Publish]
@@ -26,16 +25,7 @@ flowchart TD
     AD --> U[User Management]
     AD --> SYS[System Settings]
     AD --> AUD[Audit Logs]
-```
-## Page List & Routes
-- `/login`, `/signup`
-- `/dashboard` (role-aware: Student/Instructor)
-- `/courses/:courseId`
-- `/courses/:courseId/assignments`
-- `/assignments/:assignmentId`
-- `/assignments/:assignmentId/problems/:problemId`
-- `/assignments/:assignmentId/submit`
-- `/submissions/:submissionId` (results)
+
 - `/instructor/courses/:courseId` (owner view)
 - `/instructor/assignments/new` and `/instructor/assignments/:assignmentId/edit`
 - `/instructor/gradebook/:courseId`
