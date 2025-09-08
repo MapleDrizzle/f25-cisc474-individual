@@ -3,12 +3,26 @@
 
 ```mermaid
 erDiagram
+    USER ||--o{ ENROLLMENT : has
+    COURSE ||--o{ ENROLLMENT : includes
+    COURSE ||--o{ ASSIGNMENT : contains
+    ASSIGNMENT ||--o{ PROBLEM : has
+    PROBLEM ||--o{ TESTCASE : includes
+    ASSIGNMENT ||--o{ SUBMISSION : receives
+    USER ||--o{ SUBMISSION : makes
+    SUBMISSION ||--o{ FEEDBACK : gets
+    SUBMISSION ||--o{ ARTIFACT : produces
+    SUBMISSION ||--o{ COMMENT : has
+    ASSIGNMENT ||--o{ RUBRICITEM : scoredBy
+    SUBMISSION ||--o{ RUBRICSCORE : resultsIn
+    SUBMISSION ||--o{ BAKERUN : mayHave
     USER {
       uuid id PK
       string name
       string email UNIQ
-      enum role  "student|instructor|admin"
+      enum role
     }
+    %% role values: Baker, Head Baker, Bakery Manager
     COURSE {
       uuid id PK
       string title
@@ -20,8 +34,9 @@ erDiagram
       uuid id PK
       uuid userId FK
       uuid courseId FK
-      enum role "student|ta|instructor"
+      enum role
     }
+    %% role values: Baker, Head Baker, Bakery Manager
     ASSIGNMENT {
       uuid id PK
       uuid courseId FK
