@@ -1,4 +1,5 @@
-# Requirements Document
+
+# Requirements Document for a Bakery Themed LMS
 
 ## Roles
 - **Learner (Baker)**
@@ -13,17 +14,18 @@
 2. View assignment details and grading rubrics
 3. Submit solutions:
    - File upload (zip, code files)
-   - **Interactive Bake Run** (container/sandbox URL or spec + logs/artifacts)
+   - **Unique Submission Type:** Place files into baking tray and set the timer while you watch your assignment bake in the oven! (aka, be submitted) If the submission was unsuccessful, the baked good will come out burnt. 
 4. View grades and feedback
 
 ### Instructor (Head Baker)
 1. Create/manage courses, enroll students
-2. Create assignments
+2. Create/Edit/Delete assignments
 3. Grade submissions with rubric
 
 ### Administrator (Bakery Manager)
 1. Manage users, roles, and permissions
 2. Manage overall course settings
+3. View system activity logs
 
 ---
 
@@ -32,24 +34,20 @@
 - **Assignment** → **Recipe**
 - **Problem/Exercise** → **Step**
 - **Submission** → **Bake**
-- **Test Run / Auto-grader** → **Customer**
-
 
 ---
 
 ## User Stories
 
 ### Learner
-- As a Baker, I can see all my **Recipe Books** with upcoming **Recipes** so I can plan my week
-- As a Baker, I can open a **Recipe** and view each **Step** to complete it.
-- As a Baker, I can submit a **Bake** via code editor, file upload, or **Interactive Bake Run** so my work fits the task.
-- As a Baker, I can view what the **Customer** says about the **Bake**.
+- As a Learner, I can see all my **Courses** with upcoming **Assignments** so I can plan my week
+- As a Learner, I can open an **Assignment** and view each **Problem** to complete it.
+- As a Learner, I can turn in a **Submission** via =file upload.
 
 ### Instructor
-- As a Head Baker, I can create a **Recipe** with a due date, rubric, and tests to assess student mastery.
-- As a Head Baker, I can download all **Bakes** to review them.
-- As a Head Baker, I can give student's submission to the **Customer** to have an automatic grade.
+- As an Instructor, I can create an **Assignment** with a due date, rubric, and tests to assess student mastery.
+- As an Instructor, I can download all **Submissions** to review them.
 
 ### Administrator
-- As a Bakery Manager, I can set per-course runtime/storge quotas to control costs.
-- As a Bakery Manager, I can impersonate a user for support with audit trail.
+- As an Administrator, I can manage user accounts/roles/permissions.
+- As an Administrator, I can check the activity of everyone in the system through audit logs.
