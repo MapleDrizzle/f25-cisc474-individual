@@ -16,11 +16,8 @@ flowchart TD
 
     ID --> IC[Instructor Course Home]
     IC --> IA[Assignment Builder]
-    IA --> IP[Problem Editor]
-    IA --> IS[Submission VIewer]
-
-    ID --> G[Gradebook]
-    G --> GR[Grade Review / Publish]
+    IC --> IS[Submission VIewer]
+    IA --> IM[Manage Courses]
 
     AD --> U[User Management]
     AD --> SYS[System Settings]
