@@ -17,7 +17,7 @@ flowchart TD
     ID --> IC[Instructor Course Home]
     IC --> IA[Assignment Builder]
     IC --> IS[Submission VIewer]
-    IA --> IM[Manage Courses]
+    IC --> IM[Manage Courses]
 
     AD --> U[User Management]
     AD --> SYS[System Settings]
