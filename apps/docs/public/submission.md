@@ -10,4 +10,4 @@
 - [wireframes.pdf](wireframes.pdf)
 
 ## Data Model
-- [datmodel.pdf](datmodel.pdf)
+- [datamodel.pdf](datamodel.pdf)
