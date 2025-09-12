@@ -1,9 +1,9 @@
-export default function Course({
+export default async function Course({
   params,
 }: {
   params: Promise<{ courseId: string }>
 }) {
-  const { courseId } = params
+  const { courseId } = await params
   return (
   <div>
     <h1> Course: {courseId} </h1>
