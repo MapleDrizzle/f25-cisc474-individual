@@ -13,6 +13,7 @@ export default function StudentDashboard() {
         {courses.map((course) => (
           <li key = {course.id}>
              <Link href={`/course/${course.id}`}>{course.name}</Link>
+             <Link href="/login">Logout</Link>
           </li>
       ))}
       </ul> 
