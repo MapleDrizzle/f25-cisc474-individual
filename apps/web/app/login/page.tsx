@@ -7,7 +7,7 @@ export default function LoginPage() {
       <ul>
       <li><Link href="/student">Student Dashboard</Link></li>
       <li><Link href="/instructor">Instructor Dashboard</Link></li>
-      <li><Link href="/admin">Administrator Dashboard</Link></li>
+      <li><Link href="/administrator">Administrator Dashboard</Link></li>
       </ul>
     </div>
   );
