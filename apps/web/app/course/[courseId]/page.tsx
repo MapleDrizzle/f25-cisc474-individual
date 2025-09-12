@@ -1,7 +1,7 @@
 export default function Course({
   params,
 }: {
-  params: { courseId: string }
+  params: Promise<{ courseId: string }>
 }) {
   const { courseId } = params
   return (
