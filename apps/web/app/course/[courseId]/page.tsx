@@ -1,13 +1,13 @@
 export default function Course({
   params,
 }: {
-  params: { id: string }
+  params: { courseId: string }
 }) {
-  const { id } = params
+  const { courseId } = params
   return (
   <div>
-    <h1> Course: {id} </h1>
-    <p> Welcome to {id}. Here you'll find things such as the description and assignments.</p>
+    <h1> Course: {courseId} </h1>
+    <p> Welcome to {courseId}. Here you'll find things such as the description and assignments.</p>
   </div>
   )
 }
