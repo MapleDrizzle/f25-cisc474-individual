@@ -1,0 +1,14 @@
+import link from "next/Link"
+
+export default function LoginPage() {
+  return (
+    <div>
+    <h1>Welcome! Login please:</h1>
+      <ul>
+      <li><Link href="/student">Student Dashboard</Link></li>
+      <li><Link href="/instructor">Instructor Dashboard</Link></li>
+      <li><Link href="/admin">Administrator Dashboard</Link></li>
+      </ul>
+    </div>
+  );
+}
