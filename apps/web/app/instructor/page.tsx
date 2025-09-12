@@ -5,7 +5,7 @@ export default function Instructor() {
     <div>
       <h1>Instructor Dashboard</h1>
       <p>Manage your courses, assignments, and students.</p>
-      <Link href="/login">Back to Login</Link>
+      <Link href="/login">Logout</Link>
     </div>
     );
 }
