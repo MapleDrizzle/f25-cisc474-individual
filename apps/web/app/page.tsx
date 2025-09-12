@@ -34,6 +34,7 @@ export default function Home() {
                 <Button appName="web" className={styles.secondary}>
                     Open alert
                 </Button>
+                <Link href = "/login">Visit Bakery LMS</Link>
             </main>
             <footer className={styles.footer}>
                 <a
