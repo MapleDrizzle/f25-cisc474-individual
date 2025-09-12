@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from "next/image";
+import Link from "next/link";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 
