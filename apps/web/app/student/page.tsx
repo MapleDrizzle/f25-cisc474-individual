@@ -1,9 +1,10 @@
 import link from "next/Link"
 
-export default function StudentDashboard() { 
+export default function Student() { 
   const courses = [
     {id: "CISC320", name: "Introduction to Algorithms"},
-    {id: "CISC474", name: "Advanced Web Technologies"
+    {id: "CISC474", name: "Advanced Web Technologies"}
+    ]
     
   return ( 
     <div> 
@@ -18,5 +19,5 @@ export default function StudentDashboard() {
       ))}
       </ul> 
     </div> 
-  );
+  )
 }
