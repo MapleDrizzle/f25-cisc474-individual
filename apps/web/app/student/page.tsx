@@ -1,6 +1,10 @@
 import link from "next/Link"
 
 export default function StudentDashboard() { 
+  const courses = [
+    {id: "CISC320", name: "Introduction to Algorithms"},
+    {id: "CISC474", name: "Advanced Web Technologies"
+    
   return ( 
     <div> 
     <h1>Student Dashboard</h1>
@@ -8,7 +12,7 @@ export default function StudentDashboard() {
       <ul> 
         {courses.map((course) => (
           <li key = {course.id}>
-             <Link href={`/student/courses/${course.id}/assignment`}>{course.name}</Link>
+             <Link href={`/student/courses/${course.id}`}>{course.name}</Link>
           </li>
       ))}
       </ul> 
