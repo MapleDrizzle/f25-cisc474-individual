@@ -9,10 +9,6 @@ export default function LoginPage() {
         </div>
       <input type="text" placeholder="Username" className="w-full border rounded p-2" />
       <input type="password" placeholder="Password" className="w-full border rounded p-2" />
-      <button
-        onClick={() => handleLogin("student")}
-        className="w-full bg-blue-600 text-white rounded p-2">Login
-      </button>
       <ul>
         <li><Link href="/student">Student Dashboard</Link></li>
         <li><Link href="/instructor">Instructor Dashboard</Link></li>
