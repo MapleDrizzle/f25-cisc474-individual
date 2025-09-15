@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+ 
+export const metadata = {
+  title: "BakingSheet",
+  description: "A bakery themed Learning Management System"
+};
 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-brown-50 text-white-900">
+        <main className="p-6">{children}</main>
+      </body>
+    </html>
+  )
+}
+/*
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -29,3 +48,4 @@ export default function RootLayout({
     </html>
   );
 }
+*/
