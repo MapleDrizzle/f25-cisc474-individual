@@ -77,9 +77,10 @@ p {
 
 .button-back {
   background: var(--back);
-  border-radius: 1rem;
   margin-bottom: 1.5rem;
-  padding: 1rem; /* testing padding */
+  border-radius: 0.75rem;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem; /* testing padding */
 }
 
 .button-submit {
