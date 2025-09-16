@@ -18,7 +18,7 @@ export default async function Course({
     <div className="flex-grow w-full max-w-2xl flex flex-col items-center space-y-6">
       <h1 className="text-2xl font-bold text-white mb-6"> Course: {courseId} </h1>
       <p> Welcome to {courseId}. Here you'll find things such as the description and assignments.</p>
-      <div className="w-full max-w-md space-y-4">  
+      <div className="block w-full max-w-md space-y-4">  
           {assignments.map(a => (
             <Link
               key={a.id}
