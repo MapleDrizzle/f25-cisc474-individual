@@ -1,4 +1,4 @@
-import FooterNav from "../../components/FooterNav"
+import FooterNav from "../../../../../components/FooterNav"
 
 export default async function Course({
   params,

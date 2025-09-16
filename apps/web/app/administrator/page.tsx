@@ -1,5 +1,5 @@
 import Link from "next/link"
-import FooterNav from "@/components/FooterNav"
+import FooterNav from "../../components/FooterNav"
 
 export default function Administrator() {
   return (
