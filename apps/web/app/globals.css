@@ -52,6 +52,10 @@ h1 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+p {
+  margin-bottom: 1.5rem;
+}
+
 .panel {
   background: var(--panel);
   border-radius: 1rem;
