@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 import { redirect } from "next/navigation";
-import './global.css';
+import './globals.css';
 
 type Props = Omit<ImageProps, "src"> & {
     srcLight: string;
