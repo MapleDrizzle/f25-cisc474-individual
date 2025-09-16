@@ -3,7 +3,8 @@
 :root {
   --background: #5C4033;
   --panel: #FDF6E3;        
-  --accent: #A0522D;       
+  --accent: #A0522D;   
+  --button: #C6F68D;    
   --foreground: #171717;
 }
 
@@ -24,10 +25,10 @@ body {
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
-  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
 
 * {
@@ -51,6 +52,7 @@ a {
 .footer {
   background: var(--accent);
   color: var(--foreground);
+  text-align: center;
 }
 
 .button-submit {

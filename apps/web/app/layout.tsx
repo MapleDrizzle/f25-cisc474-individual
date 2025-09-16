@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
  
 export const metadata = {
   title: "BakingSheet",
@@ -14,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-brown-50 text-white-900">
-        <main className="p-6">{children}</main>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

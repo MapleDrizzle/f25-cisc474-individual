@@ -8,14 +8,15 @@ export default function Student() {
     ]
     
   return ( 
-    <div className="min-h-screen bg-amber-800 flex flex-col items-center p-6"> 
-      <h1 className="text-4xl font-bold text-white mb-6">Student Dashboard</h1>
+    <div className="min-h-screen flex flex-col items-center p-6"> 
+      <h1 className="text-2xl font-bold text-white mb-6">Student Dashboard!</h1>
+
       <div className="w-full max-w-md space-y-4">
         {courses.map(course => (
             <Link
               key={course.id}
               href={`/course/${course.id}`}
-              className="block bg-amber-100 rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
+              className="panel block rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
             >
               {course.name}
             </Link>
