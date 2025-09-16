@@ -8,7 +8,7 @@ export default function Student() {
     ]
     
   return ( 
-    <div className="min-h-screen flex flex-col items-center p-6 space-y-6"> 
+    <div className="min-h-screen flex flex-col items-center p-6"> 
       <h1 className="font-bold text-black mb-6">Student Dashboard!</h1>
 
       <div className="w-full max-w-md space-y-4">
