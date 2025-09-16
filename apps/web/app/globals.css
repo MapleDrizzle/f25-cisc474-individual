@@ -61,7 +61,7 @@ p {
   background: var(--panel);
   border-radius: 1rem;
   margin-bottom: 1.5rem;
-  padding: .65rem; /* testing padding */
+  padding: 1rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
@@ -77,7 +77,7 @@ p {
 
 .button-back {
   background: var(--back);
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   border-radius: 0.75rem;
   cursor: pointer;
   padding: 0.75rem 1.25rem; 
