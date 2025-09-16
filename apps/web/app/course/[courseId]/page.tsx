@@ -29,7 +29,9 @@ export default async function Course({
           </Link>
         ))}
     </div>
-    <BackButton />
+      <div className="w-full max-w-md">
+          <BackButton />
+      </div>
       <div className="footer mt-auto w-full">
           <FooterNav />
       </div>
