@@ -32,6 +32,12 @@ body {
   min-height: 100vh;
 }
 
+.space {
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
