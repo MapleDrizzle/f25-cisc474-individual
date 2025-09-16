@@ -1,12 +1,17 @@
 :root {
-  --background: #ffffff;
+  --background: #5C4033;
+  --panel: #FDF6E3;        
+  --accent: #A0522D;       
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --background: #3B2C26;
+  --panel: #2A1F1A;        
+  --accent: #8B4513; 
+  --button: #9CCC65;        
+  --foreground: #FDF6E3;
   }
 }
 
@@ -17,8 +22,10 @@ body {
 }
 
 body {
+  font-family: system-ui, sans-serif;
   color: var(--foreground);
   background: var(--background);
+  line-height: 1.5;
 }
 
 * {
@@ -30,6 +37,13 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .imgDark {

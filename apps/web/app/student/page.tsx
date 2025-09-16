@@ -7,17 +7,20 @@ export default function Student() {
     ]
     
   return ( 
-    <div> 
-    <h1>Student Dashboard</h1>
-    <h2>Courses</h2>
-      <ul> 
-        {courses.map((course) => (
-          <li key = {course.id}>
-             <Link href={`/course/${course.id}`}>{course.name}</Link>
-             <Link href="/login">Logout</Link>
-          </li>
-      ))}
-      </ul> 
+    <div className="min-h-screen bg-amber-800 flex flex-col items-center p-6"> 
+      <h1 className="text-2xl font-bold text-white mb-6">Student Dashboard</h1>
+      <div className="w-full max-w-md space-y-4">
+        {courses.map(course => (
+            <Link
+              key={course.id}
+              href={`/course/${course.id}`}
+              className="block bg-amber-100 rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
+            >
+              {course.name}
+            </Link>
+          ))}
+        </div>
     </div> 
   )
 }
+
