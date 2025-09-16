@@ -80,7 +80,7 @@ p {
   margin-bottom: 3rem;
   border-radius: 0.75rem;
   cursor: pointer;
-  padding: 0.75rem 1.25rem; /* testing padding */
+  padding: 1rem; 
 }
 
 .button-submit {
