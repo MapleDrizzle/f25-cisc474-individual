@@ -1,5 +1,5 @@
 import FooterNav from "../../../../../components/FooterNav"
-import BackButton from "../../../../../components/FooterNav"
+import BackButton from "../../../../../components/BackButton"
 
 export default async function Course({
   params,
