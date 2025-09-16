@@ -9,7 +9,7 @@ export default function Student() {
     
   return ( 
     <div className="min-h-screen flex flex-col items-center p-6"> 
-      <h1 className="text-2xl font-bold text-white mb-6">Student Dashboard!</h1>
+      <h1 className="text-4xl font-bold text-white mb-6">Student Dashboard!</h1>
 
       <div className="w-full max-w-md space-y-4">
         {courses.map(course => (
