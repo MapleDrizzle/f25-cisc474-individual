@@ -46,6 +46,7 @@ h1 {
   background: var(--accent);
   font-size: 24px;
   font-style: bold;
+  margin-bottom: 1.5rem;
   border-radius: 1rem;
   padding: 1rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
@@ -54,6 +55,7 @@ h1 {
 .panel {
   background: var(--panel);
   border-radius: 1rem;
+  margin-bottom: 1.5rem;
   padding: 1rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }

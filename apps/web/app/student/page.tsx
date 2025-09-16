@@ -9,20 +9,22 @@ export default function Student() {
     
   return ( 
     <div className="min-h-screen flex flex-col items-center p-6"> 
-      <h1 className="font-bold text-black mb-6">Student Dashboard!</h1>
+      <h1>Student Dashboard!</h1>
 
-      <div className="w-full max-w-md space-y-4">
+      <div className="w-full max-w-md">
         {courses.map(course => (
             <Link
               key={course.id}
               href={`/course/${course.id}`}
-              className="panel block rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition space-y-3"
+              className="panel block rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
             >
               {course.name}
             </Link>
           ))}
         </div>
+        <div className="footer mt-auto w-full">
         <FooterNav />
+        </div>
     </div> 
   )
 }
