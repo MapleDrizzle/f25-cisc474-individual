@@ -15,10 +15,10 @@ export default async function Course({
 
   return (
   <div className="min-h-screen bg-amber-800 flex flex-col items-center p-6">
-    <h1 className="text-2xl font-bold text-white mb-6"> Course: {courseId} </h1>
-    <p> Welcome to {courseId}. Here you'll find things such as the description and assignments.</p>
-    <div className="w-full max-w-md space-y-4">  
-      <div className="w-full max-w-md space-y-4">
+    <div className="flex-grow w-full max-w-2xl flex flex-col items-center space-y-6">
+      <h1 className="text-2xl font-bold text-white mb-6"> Course: {courseId} </h1>
+      <p> Welcome to {courseId}. Here you'll find things such as the description and assignments.</p>
+      <div className="w-full max-w-md space-y-4">  
           {assignments.map(a => (
             <Link
               key={a.id}
@@ -27,15 +27,15 @@ export default async function Course({
             >
               {a.title}
             </Link>
-          ))}
+            ))}
       </div>
-    </div>
       <div className="w-full max-w-md space-y-4">
           <BackButton />
       </div>
-      <div className="footer mt-auto w-full">
-          <FooterNav />
-      </div>
+    </div>
+    <div className="footer mt-auto w-full">
+        <FooterNav />
+    </div>
   </div>
   
   )
