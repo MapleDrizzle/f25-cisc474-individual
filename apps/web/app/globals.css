@@ -44,15 +44,16 @@ a {
 
 h1 {
   background: var(--accent);
+  font-size: 10px;
   border-radius: 1rem;
-  padding: 10rem; /* testing padding */
+  padding: 2rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .panel {
   background: var(--panel);
   border-radius: 1rem;
-  padding: 10rem; /* testing padding */
+  padding: 1rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
