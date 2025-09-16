@@ -8,18 +8,18 @@ export default async function Course({
 }) {
   const { courseId, assignmentId } = await params
   return (
-  <div className="min-h-screen bg-amber-800 flex flex-col items-center p-6">
-    <h1 className="text-2xl font-bold text-white mb-6"> {courseId} - Assignment {assignmentId} </h1>
+  <div className="flex flex-col items-center p-6">
+    <h1> {courseId} - Assignment {assignmentId} </h1>
     
-    <div className="w-full max-w-md bg-amber-100 rounded-xl p-6 mb-6 shadow">
-        <p className="text-lg font-medium">Problem:</p>
-        <p className="mt-2 text-gray-700">
+    <div className="w-full max-w-md">
+        <p>Problem:</p>
+        <p>
           Description of Assignment {assignmentId}. Solve the problem
           and submit your work below.
         </p>
       </div>
 
-      <button className="button-submit w-full max-w-md bg-lime-400 hover:bg-lime-500 text-black font-bold py-3 rounded-xl shadow transition">
+      <button className="button-submit">
         Submit
       </button>
        <BackButton />
