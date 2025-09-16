@@ -1,4 +1,6 @@
 import Link from "next/link" 
+import FooterNav from "../../../components/FooterNav"
+
 export default async function Course({
   params,
 }: {
@@ -26,6 +28,7 @@ export default async function Course({
           </Link>
         ))}
     </div>
+    <FooterNav />
   </div>
   )
 }

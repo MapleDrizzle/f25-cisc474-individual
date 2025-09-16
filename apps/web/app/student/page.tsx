@@ -1,4 +1,5 @@
 import Link from "next/link"
+import FooterNav from "../../components/FooterNav"
 
 export default function Student() { 
   const courses = [
@@ -20,6 +21,7 @@ export default function Student() {
             </Link>
           ))}
         </div>
+        <FooterNav />
     </div> 
   )
 }

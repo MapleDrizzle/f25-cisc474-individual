@@ -1,3 +1,5 @@
+import FooterNav from "../../components/FooterNav"
+
 export default async function Course({
   params,
 }: {
@@ -19,6 +21,7 @@ export default async function Course({
       <button className="w-full max-w-md bg-lime-400 hover:bg-lime-500 text-black font-bold py-3 rounded-xl shadow transition">
         Submit
       </button>
+      <FooterNav />
     </div>
   )
 }
