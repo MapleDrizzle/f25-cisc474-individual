@@ -61,7 +61,7 @@ p {
   background: var(--panel);
   border-radius: 1rem;
   margin-bottom: 1.5rem;
-  padding: 1rem; /* testing padding */
+  padding: .65rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
