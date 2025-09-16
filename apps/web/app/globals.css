@@ -13,6 +13,7 @@
   --background: #3B2C26;
   --panel: #2A1F1A;        
   --accent: #8B4513; 
+  --back: #ab7249;
   --button: #9CCC65;        
   --foreground: #FDF6E3;
   }
@@ -72,6 +73,13 @@ p {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.button-back {
+  background: var(--back);
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem; /* testing padding */
 }
 
 .button-submit {

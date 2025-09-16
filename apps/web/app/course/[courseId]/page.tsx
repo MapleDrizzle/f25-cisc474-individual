@@ -1,5 +1,6 @@
 import Link from "next/link" 
 import FooterNav from "../../../components/FooterNav"
+import BackButton from "../../../components/FooterNav"
 
 export default async function Course({
   params,
@@ -28,6 +29,7 @@ export default async function Course({
           </Link>
         ))}
     </div>
+    <BackButton />
       <div className="footer mt-auto w-full">
           <FooterNav />
       </div>
