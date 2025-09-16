@@ -16,7 +16,7 @@ export default function Student() {
             <Link
               key={course.id}
               href={`/course/${course.id}`}
-              className="panel block rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
+              className="panel block rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition space-y-3"
             >
               {course.name}
             </Link>

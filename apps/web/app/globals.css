@@ -44,9 +44,10 @@ a {
 
 h1 {
   background: var(--accent);
-  font-size: 10px;
+  font-size: 24px;
+  font-style: bold;
   border-radius: 1rem;
-  padding: 2rem; /* testing padding */
+  padding: 1rem; /* testing padding */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
