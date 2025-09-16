@@ -18,10 +18,12 @@ export default async function Course({
         </p>
       </div>
 
-      <button className="w-full max-w-md bg-lime-400 hover:bg-lime-500 text-black font-bold py-3 rounded-xl shadow transition">
+      <button className="button-submit w-full max-w-md bg-lime-400 hover:bg-lime-500 text-black font-bold py-3 rounded-xl shadow transition">
         Submit
       </button>
-      <FooterNav />
+      <div className="footer mt-auto w-full">
+          <FooterNav />
+      </div>
     </div>
   )
 }

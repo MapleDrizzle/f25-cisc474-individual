@@ -6,6 +6,10 @@ export default function FooterNav() {
       <Link href="/instructor" className="hover:underline">Instructor</Link>
       <span>|</span>
       <Link href="/administrator" className="hover:underline">Admin</Link>
+      <span>|</span>
+      <Link href="/student" className="hover:underline">Student</Link>
+      <span>|</span>
+      <Link href="/login" className="hover:underline">Logout</Link>
     </div>
   )
 }

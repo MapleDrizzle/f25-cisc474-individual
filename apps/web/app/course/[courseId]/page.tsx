@@ -22,13 +22,15 @@ export default async function Course({
           <Link
             key={a.id}
             href={`/course/${courseId}/assignment/${a.id}`}
-            className="block bg-amber-100 rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
+            className="panel block bg-amber-100 rounded-xl p-6 text-center text-lg font-medium shadow hover:bg-amber-200 transition"
           >
             {a.title}
           </Link>
         ))}
     </div>
-    <FooterNav />
+      <div className="footer mt-auto w-full">
+          <FooterNav />
+      </div>
   </div>
   )
 }

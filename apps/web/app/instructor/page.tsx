@@ -6,8 +6,9 @@ export default function Instructor() {
     <div>
       <h1>Instructor Dashboard</h1>
       <p>Manage your courses, assignments, and students.</p>
-      <Link href="/login">Logout</Link>
-      <FooterNav />
+      <div className="footer mt-auto w-full">
+          <FooterNav />
+      </div>
     </div>
     );
 }

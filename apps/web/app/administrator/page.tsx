@@ -6,8 +6,9 @@ export default function Administrator() {
     <div>
       <h1>Administrator Dashboard</h1>
       <p>Manage course settings, user permissions, and system activity.</p>
-      <Link href="/login">Logout</Link>
-      <FooterNav />
+      <div className="footer mt-auto w-full">
+          <FooterNav />
+      </div>
     </div>
     );
 }
