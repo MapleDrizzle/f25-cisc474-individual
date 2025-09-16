@@ -29,7 +29,7 @@ export default async function Course({
           </Link>
         ))}
     </div>
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md space-y-4">
           <BackButton />
       </div>
       <div className="footer mt-auto w-full">
