@@ -17,4 +17,97 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  role          Role
+
+  courses       EnrolledCourse[]
+  submissions   Submission[]
+  grades        Grade[]
+}
+
+model Course {
+  id            String @id @default(cuid())
+  code          String @unique
+  title         String
+  description   String?
+  
+  enrollments   EnrolledCourse[]
+  assignments   Assignment[]
+}
+
+model EnrolledCourse { // contains enrolled course fields
+  id            String @id @default(cuid())
+  role          CourseRole
+  userId        String
+  courseId      String
+
+  course Course @relation(fields: [courseId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+  @@unique([userId, courseId])
+}
+
+model Assignment { // contains assignment fields
+  id            String @id @default(cuid()) // MAYBE uuid here?
+  title         String
+  description   String?
+  dueDate       DateTime
+  courseId      String
+
+  course      Course      @relation(fields: [courseId], references: [id])
+  submissions Submission[]
+}
+
+model Submission { // contains submission fields
+  id            String @id @default(cuid())
+  assignmentId  String
+  userId        String
+  problems      String
+  submitDate    DateTime
+  grade         Grade?
+  bakeSubmit    BakeSubmission?
+
+  assignment   Assignment @relation(fields: [assignmentId], references: [id])
+  user         User       @relation(fields: [userId], references: [id])
+}
+
+model Grade { // contains grade fields
+  id           String @id @default(cuid())
+  submissionId String @unique
+  userId       String
+  feedback     String
+  score        Int
+  gradePosted  DateTime
+
+  submission Submission @relation(fields: [submissionId], references: [id])
+  user       User       @relation(fields: [userId], references: [id])
+}
+
+model BakeSubmission { // this is the special submission type
+  id           String @id @default(cuid())
+  submissionId String @unique
+  bakeStart    DateTime @default(now())
+  bakeDuration Int
+  bakeEnd      DateTime?
+  bakedGood    BakedGood?
+
+  submission Submission @relation(fields: [submissionId], references: [id])
+}
+
+enum Role {
+  STUDENT // can enroll in courses, submit assignments, and view grades
+  INSTRUCTOR // can edit courses, create assignments, view submissions, and assign grades
+  ADMIN // can manage all courses/users, can monitor system activity
+}
+
+enum CourseRole {
+  STUDENT
+  INSTRUCTOR
+}
+
+enum BakedGood { // what your bake submission ends up being!
+  COOKIE
+  BROWNIE
+  PIE 
+  CAKE
+  BREAD
+  CROISSANT
 }
