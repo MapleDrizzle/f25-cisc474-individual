@@ -231,7 +231,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
         assignmentId: assignment1b.id,
         userId: sarah.id,
         problems: "Implement BFS and DFS",
-        submitDate: new Date("2025-11-00T10:00:00Z"),
+        submitDate: new Date("2025-11-01T10:00:00Z"),
       }
     });
 
