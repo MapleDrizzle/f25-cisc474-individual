@@ -1,7 +1,7 @@
 # Database Schema and Data Submission
 
 ## prisma.schema
-- [Prisma Schema](schema.prisma)
+- [Prisma Schema](../../../packages/database/prisma/schema.prisma)
 
 ## CSV files list
 - [Assignment Table](Assignment_rows.csv)
