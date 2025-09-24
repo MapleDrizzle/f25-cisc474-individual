@@ -83,7 +83,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
 
 (async () => {
   try {
-    // --- USERS ---
+    // USERS
     const users = await Promise.all(
       DEFAULT_USERS.map((user) =>
         prisma.user.upsert({
@@ -101,7 +101,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
     const martina = users[9]!;
     const gary = users[10]!;
 
-    // --- COURSES ---
+    // COURSES
     const algorithms = await prisma.course.upsert({
       where: { code: "CISC320" },
       update: {},
@@ -132,7 +132,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
       },
     });
 
-    // --- ENROLLMENTS ---
+    // ENROLLMENTS
     await prisma.enrolledCourse.createMany({
       data: [
         { userId: tim.id, courseId: algorithms.id, role: "STUDENT" },
@@ -148,7 +148,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
       skipDuplicates: true,
     });
 
-    // --- ASSIGNMENTS ---
+    // ASSIGNMENTS
     const assignment1 = await prisma.assignment.upsert({
       where: { id: "algorithms-assignment-1" },
       update: {},
@@ -207,7 +207,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
     })
     // OPERATING SYSTEMS WILL HAVE NO ASSIGNMENTS
 
-    // --- SUBMISSIONS ---
+    // SUBMISSIONS
     const submission1 = await prisma.submission.create({
       data: {
         assignmentId: assignment1.id,
@@ -246,7 +246,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
 
     // Jared has no submissions!
 
-    // --- GRADES ---
+    // GRADES
     await prisma.grade.createMany({
       data: [
         {
@@ -281,7 +281,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
       skipDuplicates: true,
     });
 
-    // --- BAKE SUBMISSIONS ---
+    // BAKE SUBMISSIONS
     await prisma.bakeSubmission.createMany({
       data: [
         {
@@ -312,7 +312,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
       skipDuplicates: true,
     });
 
-    console.log("✅ Database seeded successfully!");
+    console.log("Database seeded successfully!"); // make sure data gets added as rows
     /*
     await Promise.all(
       DEFAULT_USERS.map((user) =>
@@ -331,7 +331,7 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
     );
     */
   } catch (error) {
-    console.error("ERROR SEEDING DATABASE", error);
+    console.error("Error Seeding Database", error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();
