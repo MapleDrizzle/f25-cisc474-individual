@@ -87,9 +87,9 @@ const DEFAULT_USERS: Prisma.UserCreateInput[] = [
     const users = await Promise.all(
       DEFAULT_USERS.map((user) =>
         prisma.user.upsert({
-          where: { email: user.email! },
-          update: user,
-          create: user,
+          where: { email: user.email ?? "" },
+          update: { name: user.name ?? null, role: user.role,},
+          create: { name: user.name ?? null, email: user.email ?? null, role: user.role,},
         })
       )
     );
