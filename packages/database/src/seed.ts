@@ -1,7 +1,7 @@
 import { prisma, Prisma } from "./client";
 
 //import type { User } from "../generated/client";
-
+console.log(">>> seed.ts is running..");
 const DEFAULT_USERS: Prisma.UserCreateInput[] = [
   // Add your own user to pre-populate the database with
   {
