@@ -1,5 +1,6 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 const prisma = new PrismaClient();
+import "dotenv/config";
 //import type { User } from "../generated/client";
 
 const DEFAULT_USERS: Prisma.UserCreateInput[] = [
