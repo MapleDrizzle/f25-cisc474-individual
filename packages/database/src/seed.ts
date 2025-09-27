@@ -1,83 +1,83 @@
-import { prisma, Prisma } from "./client";
+import { prisma, Role } from "./client";
 
 //import type { User } from "../generated/client";
 console.log(">>> seed.ts is running..");
-const DEFAULT_USERS: Prisma.UserUncheckedCreateInput[] = [
+const DEFAULT_USERS= [
   // Add your own user to pre-populate the database with
   {
     name: "Tim Apple",
     email: "tim@apple.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Sarah Strawberry",
     email: "sarah@strawberry.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Laura Lemon",
     email: "laura@lemon.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Jared Pineapple",
     email: "jared@pineapple.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Melody Melon",
     email: "melody@melon.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Anthony Avocado",
     email: "anthony@avocado.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Charlie Coconut",
     email: "charlie@coconut.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Mira Mango",
     email: "mira@mango.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "David Dragonfruit",
     email: "david@dragonfruit.com",
-    role: "STUDENT",
+    role: Role.STUDENT,
   },
   {
     name: "Martina Pear",
     email: "martina@pear.com",
-    role: "INSTRUCTOR",
+    role: Role.INSTRUCTOR,
   },
   {
     name: "Gary Grape",
     email: "gary@grape.com",
-    role: "INSTRUCTOR",
+    role: Role.INSTRUCTOR,
   },
   {
     name: "Ruby Raspberry",
     email: "ruby@raspberry.com",
-    role: "INSTRUCTOR",
+    role: Role.INSTRUCTOR,
   },
   {
     name: "John Banana",
     email: "john@banana.com",
-    role: "ADMIN",
+    role: Role.ADMIN,
   },
   {
     name: "Wayhem Watermelon",
     email: "wayhem@watermelon.com",
-    role: "ADMIN",
+    role: Role.ADMIN,
   },
   {
     name: "Emily Blueberry",
     email: "emily@blueberry.com",
-    role: "ADMIN",
+    role: Role.ADMIN,
   }
 ]; //as Array<Partial<User>>;
 
