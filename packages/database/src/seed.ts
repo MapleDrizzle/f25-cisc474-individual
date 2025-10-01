@@ -212,6 +212,7 @@ const DEFAULT_USERS= [
       where: { id: "algorithms-submission-1"},
       update: {},
       create: {
+        id: "algorithms-submission-1",
         assignmentId: assignment1.id,
         userId: tim.id,
         problems: "Implemented merge sort and quicksort in Python.",
@@ -223,6 +224,7 @@ const DEFAULT_USERS= [
       where: { id: "algorithms-submission-1a"},
       update: {},
       create: {
+        id: "algorithms-submission-1a",
         assignmentId: assignment1a.id,
         userId: tim.id,
         problems: "Implement the master theorem in these problems.",
@@ -234,6 +236,7 @@ const DEFAULT_USERS= [
       where: { id: "algorithms-submission-1b"},
       update: {},
       create: {
+        id: "algorithms-submission-1b",
         assignmentId: assignment1b.id,
         userId: sarah.id,
         problems: "Implement BFS and DFS",
@@ -245,6 +248,7 @@ const DEFAULT_USERS= [
       where: { id: "webtech-submission-2"},
       update: {},
       create: {
+        id: "algorithms-submission-2",
         assignmentId: assignment2.id,
         userId: laura.id,
         problems: "Created button, card, and modal components in React.",
@@ -259,6 +263,7 @@ const DEFAULT_USERS= [
       where: { id: "grade-1"},
       update: {},
       create: {
+        id: "grade-1",
         submissionId: submission1.id,
         userId: martina.id,
         feedback: "Great job on merge sort, but quicksort needs optimization.",
@@ -270,6 +275,7 @@ const DEFAULT_USERS= [
       where: { id: "grade-2"},
       update: {},
       create: {
+        id: "grade-2",
         submissionId: submission1a.id,
         userId: martina.id,
         feedback: "Really great work!",
@@ -281,6 +287,7 @@ const DEFAULT_USERS= [
       where: { id: "grade-3"},
       update: {},
       create: {
+        id: "grade-3",
         submissionId: submission1b.id,
         userId: gary.id,
         feedback: "Looks good!",
@@ -292,6 +299,7 @@ const DEFAULT_USERS= [
       where: { id: "grade-4"},
       update: {},
       create: {
+        id: "grade-4",
         submissionId: submission2.id,
         userId: gary.id,
         feedback: "Great component structure and styling.",
@@ -340,6 +348,7 @@ const DEFAULT_USERS= [
       where: { id: "bake-1"},
       update: {},
       create: {
+        id: "bake-1",
         submissionId: submission1.id,
         bakeDuration: 120,
         bakeEnd: new Date("2025-09-15T10:02:00Z"),
@@ -350,6 +359,7 @@ const DEFAULT_USERS= [
       where: { id: "bake-2"},
       update: {},
       create: {
+        id: "bake-2",
         submissionId: submission1a.id,
         bakeDuration: 180,
         bakeEnd: new Date("2025-09-16T12:05:00Z"),
@@ -360,6 +370,7 @@ const DEFAULT_USERS= [
       where: { id: "bake-3"},
       update: {},
       create: {
+        id: "bake-3",
         submissionId: submission1b.id,
         bakeDuration: 300,
         bakeEnd: new Date("2025-09-16T12:05:00Z"),
@@ -370,6 +381,7 @@ const DEFAULT_USERS= [
       where: { id: "bake-4"},
       update: {},
       create: {
+        id: "bake-4",
         submissionId: submission2.id,
         bakeDuration: 400,
         bakeEnd: new Date("2025-09-16T12:05:00Z"),
