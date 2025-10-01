@@ -208,8 +208,10 @@ const DEFAULT_USERS= [
     // OPERATING SYSTEMS WILL HAVE NO ASSIGNMENTS
 
     // SUBMISSIONS
-    const submission1 = await prisma.submission.create({
-      data: {
+    const submission1 = await prisma.submission.upsert({
+      where: { id: "algorithms-submission-1"},
+      update: {},
+      create: {
         assignmentId: assignment1.id,
         userId: tim.id,
         problems: "Implemented merge sort and quicksort in Python.",
@@ -217,8 +219,10 @@ const DEFAULT_USERS= [
       },
     });
 
-    const submission1a = await prisma.submission.create({
-      data: {
+    const submission1a = await prisma.submission.upsert({
+      where: { id: "algorithms-submission-1a"},
+      update: {},
+      create: {
         assignmentId: assignment1a.id,
         userId: tim.id,
         problems: "Implement the master theorem in these problems.",
@@ -226,8 +230,10 @@ const DEFAULT_USERS= [
       },
     });
 
-    const submission1b = await prisma.submission.create({
-      data: {
+    const submission1b = await prisma.submission.upsert({
+      where: { id: "algorithms-submission-1b"},
+      update: {},
+      create: {
         assignmentId: assignment1b.id,
         userId: sarah.id,
         problems: "Implement BFS and DFS",
@@ -235,8 +241,10 @@ const DEFAULT_USERS= [
       }
     });
 
-    const submission2 = await prisma.submission.create({
-      data: {
+    const submission2 = await prisma.submission.upsert({
+      where: { id: "webtech-submission-2"},
+      update: {},
+      create: {
         assignmentId: assignment2.id,
         userId: laura.id,
         problems: "Created button, card, and modal components in React.",
@@ -247,6 +255,51 @@ const DEFAULT_USERS= [
     // Jared has no submissions!
 
     // GRADES
+    await prisma.grade.upsert({
+      where: { id: "grade-1"},
+      update: {},
+      create: {
+        submissionId: submission1.id,
+        userId: martina.id,
+        feedback: "Great job on merge sort, but quicksort needs optimization.",
+        score: 85,
+        gradePosted: new Date("2025-09-17T14:00:00Z"),
+      },
+    });
+    await prisma.grade.upsert({
+      where: { id: "grade-2"},
+      update: {},
+      create: {
+        submissionId: submission1a.id,
+        userId: martina.id,
+        feedback: "Really great work!",
+        score: 95,
+        gradePosted: new Date("2025-09-17T14:00:00Z"),
+      },
+    });
+    await prisma.grade.upsert({
+      where: { id: "grade-3"},
+      update: {},
+      create: {
+        submissionId: submission1b.id,
+        userId: gary.id,
+        feedback: "Looks good!",
+        score: 90,
+        gradePosted: new Date("2025-09-17T14:00:00Z"),
+      },
+    });
+    await prisma.grade.upsert({
+      where: { id: "grade-4"},
+      update: {},
+      create: {
+        submissionId: submission2.id,
+        userId: gary.id,
+        feedback: "Great component structure and styling.",
+        score: 95,
+        gradePosted: new Date("2025-09-18T15:30:00Z"),
+      },
+    });
+    /* changed to be upsert
     await prisma.grade.createMany({
       data: [
         {
@@ -280,8 +333,50 @@ const DEFAULT_USERS= [
       ],
       skipDuplicates: true,
     });
+    */
 
     // BAKE SUBMISSIONS
+    await prisma.bakeSubmission.upsert({
+      where: { id: "bake-1"},
+      update: {},
+      create: {
+        submissionId: submission1.id,
+        bakeDuration: 120,
+        bakeEnd: new Date("2025-09-15T10:02:00Z"),
+        bakedGood: "COOKIE",
+      },
+    });
+    await prisma.bakeSubmission.upsert({
+      where: { id: "bake-2"},
+      update: {},
+      create: {
+        submissionId: submission1a.id,
+        bakeDuration: 180,
+        bakeEnd: new Date("2025-09-16T12:05:00Z"),
+        bakedGood: "BROWNIE",
+      },
+    });
+    await prisma.bakeSubmission.upsert({
+      where: { id: "bake-3"},
+      update: {},
+      create: {
+        submissionId: submission1b.id,
+        bakeDuration: 300,
+        bakeEnd: new Date("2025-09-16T12:05:00Z"),
+        bakedGood: "CAKE",
+      },
+    });
+    await prisma.bakeSubmission.upsert({
+      where: { id: "bake-4"},
+      update: {},
+      create: {
+        submissionId: submission2.id,
+        bakeDuration: 400,
+        bakeEnd: new Date("2025-09-16T12:05:00Z"),
+        bakedGood: "PIE",
+      },
+    });
+    /* changed to be upsert
     await prisma.bakeSubmission.createMany({
       data: [
         {
@@ -311,7 +406,7 @@ const DEFAULT_USERS= [
       ],
       skipDuplicates: true,
     });
-
+    */
     console.log("Database seeded successfully!"); // make sure data gets added as rows
     /*
     await Promise.all(
