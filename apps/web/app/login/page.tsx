@@ -14,8 +14,7 @@ export default function LoginPage() {
         <li><Link href="/student">Student Dashboard</Link></li>
         <li><Link href="/instructor">Instructor Dashboard</Link></li>
         <li><Link href="/administrator">Administrator Dashboard</Link></li>
-        <br></br>
-        <li><Link href="/data">VIEW FRONTEND/BACKEND DATA</Link></li>
+        <li><Link href="/data"><strong>VIEW FRONTEND/BACKEND DATA</strong></Link></li>
       </ul>
     </div>
   );
