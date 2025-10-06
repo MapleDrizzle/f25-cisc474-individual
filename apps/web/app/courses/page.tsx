@@ -14,7 +14,7 @@ async function CoursesList() {
     <ul>
       {courses.map((course: any) => (
         <li key={course.id}>
-          <strong>{course.name}</strong> — {course.role}
+          <strong>{course.title}</strong> — {course.description}
         </li>
       ))}
     </ul>
