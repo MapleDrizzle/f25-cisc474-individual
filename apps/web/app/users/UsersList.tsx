@@ -24,7 +24,7 @@ export default function UsersList() {
     <ul>
       {users.map((user) => (
         <li key={user.id}>
-          <strong>{user.title}</strong> — {user.description}
+          <strong>{user.name}</strong> — {user.role}
         </li>
       ))}
     </ul>
