@@ -10,6 +10,7 @@ export default function CoursesList() {
   useEffect(() => {
     async function fetchCourses() {
       try {
+        console.log("Fetching from:", process.env.NEXT_PUBLIC_API_URL + "/courses");
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/courses`);
         if (!res.ok) throw new Error("Failed to fetch courses");
         const data = await res.json();
