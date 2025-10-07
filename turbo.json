@@ -11,7 +11,8 @@
         "dist/**",
         ".next/**",
         "!.next/cache/**"
-      ]
+      ],
+      "env": ["FRONTEND_URL"]
     },
     "test": {
       "outputs": ["coverage/**"],
