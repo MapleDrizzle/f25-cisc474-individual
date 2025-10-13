@@ -13,3 +13,122 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
+
+:root {
+  --background: #5C4033;
+  --panel: #FDF6E3;        
+  --accent: #A0522D;   
+  --button: #C6F68D;    
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --background: #3B2C26;
+  --panel: #2A1F1A;        
+  --accent: #8B4513; 
+  --back: #ab7249;
+  --button: #9CCC65;        
+  --foreground: #FDF6E3;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.space {
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  background: var(--accent);
+  font-size: 24px;
+  font-style: bold;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+  padding: 1rem; /* testing padding */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem; /* testing padding */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.footer {
+  background: var(--accent);
+  color: var(--foreground);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.button-back {
+  background: var(--back);
+  margin-bottom: 1.5rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem; 
+}
+
+.button-submit {
+  background: var(--button);
+  color: black;
+  font-weight: bold;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  background: #b5eb7c; /* slightly darker green */
+}
+
+.imgDark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  .imgLight {
+    display: none;
+  }
+  .imgDark {
+    display: unset;
+  }
+}
