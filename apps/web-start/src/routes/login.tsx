@@ -1,7 +1,11 @@
 
-import Link from "next/link"
+import { Link, createFileRoute } from '@tanstack/react-router'
 
-export default function LoginPage() {
+export const Route = createFileRoute('/login')({
+  component: Login,
+})
+
+function Login() {
   return (
     <div className="max-w-sm mx-auto">
       <div className="text-center">
@@ -11,10 +15,9 @@ export default function LoginPage() {
       <input type="text" placeholder="Username" className="w-full border rounded p-2" />
       <input type="password" placeholder="Password" className="w-full border rounded p-2" />
       <ul>
-        <li><Link href="/student">Student Dashboard</Link></li>
-        <li><Link href="/instructor">Instructor Dashboard</Link></li>
-        <li><Link href="/administrator">Administrator Dashboard</Link></li>
-        <li><Link href="/data"><strong>VIEW FRONTEND/BACKEND DATA</strong></Link></li>
+        <li><Link to="/student">Student Dashboard</Link></li>
+        <li><Link to="/instructor">Instructor Dashboard</Link></li>
+        <li><Link to="/administrator">Administrator Dashboard</Link></li>
       </ul>
     </div>
   );
