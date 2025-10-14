@@ -16,8 +16,8 @@ function Course() { // List the course's assignments
   ]
 
   return (
-  <div className="flex flex-col items-center p-6">
-    <div className="flex-grow items-center space-y-6">
+  <div>
+    <div>
       <h1> Course: {courseId} </h1>
       <p> Welcome to {courseId}. Here you'll find things such as the description and assignments.</p>
       <div className="space">  
