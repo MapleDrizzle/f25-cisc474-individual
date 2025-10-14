@@ -29,6 +29,11 @@ function Login() {
             Administrator Dashboard
           </Link>
         </li>
+        <li>
+          <Link to="/data">
+            VIEW FRONTEND/BACKEND DATA
+          </Link>
+        </li>
       </ul>
     </div>
   );

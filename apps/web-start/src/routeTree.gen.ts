@@ -14,7 +14,10 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as InstructorRouteImport } from './routes/instructor'
 import { Route as AdministratorRouteImport } from './routes/administrator'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DataIndexRouteImport } from './routes/data/index'
 import { Route as CourseIndexRouteImport } from './routes/course/index'
+import { Route as DataUsersIndexRouteImport } from './routes/data/users/index'
+import { Route as DataCoursesIndexRouteImport } from './routes/data/courses/index'
 import { Route as CourseCourseIdIndexRouteImport } from './routes/course/$courseId/index'
 import { Route as CourseCourseIdAssignmentAssignmentIdRouteImport } from './routes/course/$courseId/assignment/$assignmentId'
 
@@ -43,9 +46,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataIndexRoute = DataIndexRouteImport.update({
+  id: '/data/',
+  path: '/data/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CourseIndexRoute = CourseIndexRouteImport.update({
   id: '/course/',
   path: '/course/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataUsersIndexRoute = DataUsersIndexRouteImport.update({
+  id: '/data/users/',
+  path: '/data/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataCoursesIndexRoute = DataCoursesIndexRouteImport.update({
+  id: '/data/courses/',
+  path: '/data/courses/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CourseCourseIdIndexRoute = CourseCourseIdIndexRouteImport.update({
@@ -67,7 +85,10 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/student': typeof StudentRoute
   '/course': typeof CourseIndexRoute
+  '/data': typeof DataIndexRoute
   '/course/$courseId': typeof CourseCourseIdIndexRoute
+  '/data/courses': typeof DataCoursesIndexRoute
+  '/data/users': typeof DataUsersIndexRoute
   '/course/$courseId/assignment/$assignmentId': typeof CourseCourseIdAssignmentAssignmentIdRoute
 }
 export interface FileRoutesByTo {
@@ -77,7 +98,10 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/student': typeof StudentRoute
   '/course': typeof CourseIndexRoute
+  '/data': typeof DataIndexRoute
   '/course/$courseId': typeof CourseCourseIdIndexRoute
+  '/data/courses': typeof DataCoursesIndexRoute
+  '/data/users': typeof DataUsersIndexRoute
   '/course/$courseId/assignment/$assignmentId': typeof CourseCourseIdAssignmentAssignmentIdRoute
 }
 export interface FileRoutesById {
@@ -88,7 +112,10 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/student': typeof StudentRoute
   '/course/': typeof CourseIndexRoute
+  '/data/': typeof DataIndexRoute
   '/course/$courseId/': typeof CourseCourseIdIndexRoute
+  '/data/courses/': typeof DataCoursesIndexRoute
+  '/data/users/': typeof DataUsersIndexRoute
   '/course/$courseId/assignment/$assignmentId': typeof CourseCourseIdAssignmentAssignmentIdRoute
 }
 export interface FileRouteTypes {
@@ -100,7 +127,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/student'
     | '/course'
+    | '/data'
     | '/course/$courseId'
+    | '/data/courses'
+    | '/data/users'
     | '/course/$courseId/assignment/$assignmentId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,7 +140,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/student'
     | '/course'
+    | '/data'
     | '/course/$courseId'
+    | '/data/courses'
+    | '/data/users'
     | '/course/$courseId/assignment/$assignmentId'
   id:
     | '__root__'
@@ -120,7 +153,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/student'
     | '/course/'
+    | '/data/'
     | '/course/$courseId/'
+    | '/data/courses/'
+    | '/data/users/'
     | '/course/$courseId/assignment/$assignmentId'
   fileRoutesById: FileRoutesById
 }
@@ -131,7 +167,10 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   StudentRoute: typeof StudentRoute
   CourseIndexRoute: typeof CourseIndexRoute
+  DataIndexRoute: typeof DataIndexRoute
   CourseCourseIdIndexRoute: typeof CourseCourseIdIndexRoute
+  DataCoursesIndexRoute: typeof DataCoursesIndexRoute
+  DataUsersIndexRoute: typeof DataUsersIndexRoute
   CourseCourseIdAssignmentAssignmentIdRoute: typeof CourseCourseIdAssignmentAssignmentIdRoute
 }
 
@@ -172,11 +211,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data/': {
+      id: '/data/'
+      path: '/data'
+      fullPath: '/data'
+      preLoaderRoute: typeof DataIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/course/': {
       id: '/course/'
       path: '/course'
       fullPath: '/course'
       preLoaderRoute: typeof CourseIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/users/': {
+      id: '/data/users/'
+      path: '/data/users'
+      fullPath: '/data/users'
+      preLoaderRoute: typeof DataUsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/courses/': {
+      id: '/data/courses/'
+      path: '/data/courses'
+      fullPath: '/data/courses'
+      preLoaderRoute: typeof DataCoursesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/course/$courseId/': {
@@ -203,7 +263,10 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   StudentRoute: StudentRoute,
   CourseIndexRoute: CourseIndexRoute,
+  DataIndexRoute: DataIndexRoute,
   CourseCourseIdIndexRoute: CourseCourseIdIndexRoute,
+  DataCoursesIndexRoute: DataCoursesIndexRoute,
+  DataUsersIndexRoute: DataUsersIndexRoute,
   CourseCourseIdAssignmentAssignmentIdRoute:
     CourseCourseIdAssignmentAssignmentIdRoute,
 }
