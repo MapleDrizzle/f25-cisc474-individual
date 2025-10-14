@@ -3,8 +3,8 @@ import { backendFetcher } from '../integrations/fetcher'
 
 type Course = {
   id: string
-  name: string
-  role: string
+  title: string
+  description: string
 }
 
 export default function CoursesList() {
@@ -35,7 +35,7 @@ export default function CoursesList() {
     <ul>
       {courses.map((course) => (
         <li key={course.id}>
-          <strong>{course.name}</strong> — {course.role}
+          <strong>{course.title}</strong> — {course.description}
         </li>
       ))}
     </ul>
