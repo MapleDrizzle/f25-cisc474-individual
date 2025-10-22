@@ -19,6 +19,7 @@ import { Route as CourseIndexRouteImport } from './routes/course/index'
 import { Route as DataUsersIndexRouteImport } from './routes/data/users/index'
 import { Route as DataCoursesIndexRouteImport } from './routes/data/courses/index'
 import { Route as CourseCourseIdIndexRouteImport } from './routes/course/$courseId/index'
+import { Route as DataCoursesCreateRouteImport } from './routes/data/courses/create'
 import { Route as CourseCourseIdAssignmentAssignmentIdRouteImport } from './routes/course/$courseId/assignment/$assignmentId'
 
 const StudentRoute = StudentRouteImport.update({
@@ -71,6 +72,11 @@ const CourseCourseIdIndexRoute = CourseCourseIdIndexRouteImport.update({
   path: '/course/$courseId/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataCoursesCreateRoute = DataCoursesCreateRouteImport.update({
+  id: '/data/courses/create',
+  path: '/data/courses/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CourseCourseIdAssignmentAssignmentIdRoute =
   CourseCourseIdAssignmentAssignmentIdRouteImport.update({
     id: '/course/$courseId/assignment/$assignmentId',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/student': typeof StudentRoute
   '/course': typeof CourseIndexRoute
   '/data': typeof DataIndexRoute
+  '/data/courses/create': typeof DataCoursesCreateRoute
   '/course/$courseId': typeof CourseCourseIdIndexRoute
   '/data/courses': typeof DataCoursesIndexRoute
   '/data/users': typeof DataUsersIndexRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/student': typeof StudentRoute
   '/course': typeof CourseIndexRoute
   '/data': typeof DataIndexRoute
+  '/data/courses/create': typeof DataCoursesCreateRoute
   '/course/$courseId': typeof CourseCourseIdIndexRoute
   '/data/courses': typeof DataCoursesIndexRoute
   '/data/users': typeof DataUsersIndexRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/student': typeof StudentRoute
   '/course/': typeof CourseIndexRoute
   '/data/': typeof DataIndexRoute
+  '/data/courses/create': typeof DataCoursesCreateRoute
   '/course/$courseId/': typeof CourseCourseIdIndexRoute
   '/data/courses/': typeof DataCoursesIndexRoute
   '/data/users/': typeof DataUsersIndexRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/student'
     | '/course'
     | '/data'
+    | '/data/courses/create'
     | '/course/$courseId'
     | '/data/courses'
     | '/data/users'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/student'
     | '/course'
     | '/data'
+    | '/data/courses/create'
     | '/course/$courseId'
     | '/data/courses'
     | '/data/users'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/student'
     | '/course/'
     | '/data/'
+    | '/data/courses/create'
     | '/course/$courseId/'
     | '/data/courses/'
     | '/data/users/'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   StudentRoute: typeof StudentRoute
   CourseIndexRoute: typeof CourseIndexRoute
   DataIndexRoute: typeof DataIndexRoute
+  DataCoursesCreateRoute: typeof DataCoursesCreateRoute
   CourseCourseIdIndexRoute: typeof CourseCourseIdIndexRoute
   DataCoursesIndexRoute: typeof DataCoursesIndexRoute
   DataUsersIndexRoute: typeof DataUsersIndexRoute
@@ -246,6 +259,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CourseCourseIdIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data/courses/create': {
+      id: '/data/courses/create'
+      path: '/data/courses/create'
+      fullPath: '/data/courses/create'
+      preLoaderRoute: typeof DataCoursesCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/course/$courseId/assignment/$assignmentId': {
       id: '/course/$courseId/assignment/$assignmentId'
       path: '/course/$courseId/assignment/$assignmentId'
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudentRoute: StudentRoute,
   CourseIndexRoute: CourseIndexRoute,
   DataIndexRoute: DataIndexRoute,
+  DataCoursesCreateRoute: DataCoursesCreateRoute,
   CourseCourseIdIndexRoute: CourseCourseIdIndexRoute,
   DataCoursesIndexRoute: DataCoursesIndexRoute,
   DataUsersIndexRoute: DataUsersIndexRoute,

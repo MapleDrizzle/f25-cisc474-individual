@@ -12,3 +12,11 @@ export const links = {
     Link,
   },
 };
+
+export {
+  CourseCreateIn,
+  CourseOut,
+  CourseRef,
+  CourseUpdateIn,
+  CoursesListFilter,
+} from './courses';

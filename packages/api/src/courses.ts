@@ -4,7 +4,7 @@ import { Pagination } from './queries';
 
 // Reference DTOs (lightweight relation embeds)
 export const CourseRef = z.object({
-  id: z.string().cuid(),
+  id: z.string().uuid(),
   code: z.string(),
   title: z.string(),
 });
@@ -12,7 +12,7 @@ export type CourseRef = z.infer<typeof CourseRef>;
 
 // Output DTOs (API responses)
 export const CourseOut = z.object({
-  id: z.string().cuid(),
+  id: z.string().uuid(),
   code: z.string(),
   title: z.string(),
   description: z.string().nullable().optional(),

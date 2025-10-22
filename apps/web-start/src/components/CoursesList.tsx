@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+// import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { backendFetcher } from '../integrations/fetcher'
+/* DELETE THIS WHEN NECESSARY
 import type { CourseOut } from '@repo/api';
 
 
@@ -9,7 +10,7 @@ const coursesQueryOptions = {
   queryFn: backendFetcher<Array<CourseOut>>('/courses'),
   initialData: [],
 };
-
+*/
 type Course = {
   id: string
   title: string

@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import CoursesList from "../../../components/CoursesList";
 
 export const Route = createFileRoute('/data/courses/')({
@@ -10,6 +10,7 @@ function Courses() {
     <div>
       <h1>Courses</h1>
         <CoursesList />
+        <Link to="/data/courses/create">Create New Course</Link>
     </div>
   );
 }
