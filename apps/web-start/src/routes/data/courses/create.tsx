@@ -72,7 +72,7 @@ function RouteComponent() {
                 mutation.mutate({
                   title: newName,
                   description: newDescription,
-                  code: 'COURSE-' + Math.random().toString(36).substring(2, 7).toUpperCase(),});
+                  code: newCourseCode});
               }}
             >
               Create Course
@@ -80,7 +80,7 @@ function RouteComponent() {
           </div>
           <hr></hr>
           <div>
-            <a href="/courses">Back to Courses</a>
+            <a href="/data/courses/">Back to Courses</a>
           </div>
         </>
       )}
