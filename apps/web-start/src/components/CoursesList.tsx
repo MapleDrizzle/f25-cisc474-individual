@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { backendFetcher } from '../integrations/fetcher'
+import type { CourseOut } from '@repo/api';
+
+
+const coursesQueryOptions = {
+  queryKey: ['courses'],
+  queryFn: backendFetcher<Array<CourseOut>>('/courses'),
+  initialData: [],
+};
 
 type Course = {
   id: string
@@ -8,14 +17,14 @@ type Course = {
 }
 
 export default function CoursesList() {
-  const [courses, setCourses] = useState<Course[]>([])
+  const [courses, setCourses] = useState<Array<Course>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const fetchCoursesFn = await backendFetcher<Course[]>('/courses')
+        const fetchCoursesFn = await backendFetcher<Array<Course>>('/courses')
         const data = await fetchCoursesFn()
         setCourses(data)
       } catch (err: any) {

@@ -8,14 +8,14 @@ type User = {
 }
 
 export default function UsersList() {
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<Array<User>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const fetchUsersFn = await backendFetcher<User[]>('/users')
+        const fetchUsersFn = await backendFetcher<Array<User>>('/users')
         const data = await fetchUsersFn()
         setUsers(data)
       } catch (err: any) {
