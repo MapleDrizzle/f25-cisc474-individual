@@ -1,16 +1,8 @@
 import { useEffect, useState } from 'react'
 // import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { backendFetcher } from '../integrations/fetcher'
-/* DELETE THIS WHEN NECESSARY
-import type { CourseOut } from '@repo/api';
+import { Link } from '@tanstack/react-router';
 
-
-const coursesQueryOptions = {
-  queryKey: ['courses'],
-  queryFn: backendFetcher<Array<CourseOut>>('/courses'),
-  initialData: [],
-};
-*/
 type Course = {
   id: string
   title: string
@@ -46,6 +38,21 @@ export default function CoursesList() {
       {courses.map((course) => (
         <li key={course.id}>
           <strong>{course.title}</strong> — {course.description}
+          <div> 
+              <Link
+                to="/data/courses/edit/$courseId"
+                params={{ courseId: course.id }}
+              >
+                Edit Course
+              </Link>
+              |
+              <Link
+                to="/data/courses/delete/$courseId"
+                params={{ courseId: course.id }}
+              >
+                Delete Course
+              </Link>
+          </div>
         </li>
       ))}
     </ul>

@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { backendFetcher, mutateBackend } from '../../../integrations/fetcher';
+import { mutateBackend } from '../../../integrations/fetcher';
 import type { CourseCreateIn, CourseOut } from '@repo/api';
 // import { useApiMutation, useCurrentUser } from '../../integrations/api'; THIS WILL BE FOR AUTHENTICATION
 
