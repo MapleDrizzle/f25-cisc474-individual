@@ -1,43 +1,37 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { Course, Prisma } from '@repo/database/generated/client';
+import { CourseCreateIn, CourseUpdateIn, CourseOut } from '@repo/api/courses';
+
 
 @Injectable()
 export class CoursesService {
-    constructor(private prisma: PrismaService) {} // specific row given an id
+  constructor(private prisma: PrismaService) {}
 
-    async findOne(
-        courseWhereUniqueInput: Prisma.CourseWhereUniqueInput,
-    ): Promise<Course | null> {
-        return this.prisma.course.findUnique({
-            where: courseWhereUniqueInput,
-        });
-    }
-    
-    async findAll(): Promise<Course[]> {
-        return this.prisma.course.findMany();
-    }
+  async findAll() {
+    return this.prisma.course.findMany();
+  }
 
-    async createCourse(data: Prisma.CourseCreateInput): Promise<Course> {
-        return this.prisma.course.create({
-            data,
-        });
-    }
+  async findOne(
+          courseWhereUniqueInput: Prisma.CourseWhereUniqueInput,
+  ): Promise<Course | null> {
+          return this.prisma.course.findUnique({
+              where: courseWhereUniqueInput,
+          });
+  }
 
-    async updateCourse(params: {
-    where: Prisma.CourseWhereUniqueInput;
-    data: Prisma.CourseUpdateInput;
-  }): Promise<Course> {
-    const { where, data } = params;
+  async create(data: CourseCreateIn) {
+    return this.prisma.course.create({ data });
+  }
+
+  async update(id: string, data: CourseUpdateIn) {
     return this.prisma.course.update({
+      where: { id },
       data,
-      where,
     });
   }
 
-  async deleteCourse(where: Prisma.CourseWhereUniqueInput): Promise<Course> {
-    return this.prisma.course.delete({
-      where,
-    });
+  async delete(id: string) {
+    return this.prisma.course.delete({ where: { id } });
   }
 }
