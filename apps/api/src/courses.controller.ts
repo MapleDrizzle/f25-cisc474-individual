@@ -7,9 +7,9 @@ export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
   @Get(':id')
-    getCourseById(@Param('id') id: string) {
-        return this.coursesService.findOne({ id: String(id) });
-    }
+  findOne(@Param('id') id: string) {
+    return this.coursesService.findOne(id);
+  }
 
   @Get()
     getCourses() {

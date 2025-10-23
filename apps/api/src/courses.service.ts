@@ -12,12 +12,10 @@ export class CoursesService {
     return this.prisma.course.findMany();
   }
 
-  async findOne(
-          courseWhereUniqueInput: Prisma.CourseWhereUniqueInput,
-  ): Promise<Course | null> {
-          return this.prisma.course.findUnique({
-              where: courseWhereUniqueInput,
-          });
+  async findOne(id: string) { // UPDATED TO NOT GET PRISMA ERROR
+    return this.prisma.course.findUnique({
+      where: { id },
+    });
   }
 
   async create(data: CourseCreateIn) {
