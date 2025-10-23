@@ -27,8 +27,12 @@ export class CoursesService {
   async update(id: string, data: CourseUpdateIn) {
     return this.prisma.course.update({
       where: { id },
-      data,
-    });
+      data: {
+      ...(data.code ? { code: data.code } : {}),
+      ...(data.title ? { title: data.title } : {}),
+      description: data.description ?? undefined,
+    },
+  });
   }
 
   async delete(id: string) {
