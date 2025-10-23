@@ -23,7 +23,7 @@ function RouteComponent() {
 
   const mutation = useMutation({
     mutationFn: (updated: CourseUpdateIn) =>
-      mutateBackend<CourseOut>(`/courses/${courseId}`, 'PUT', updated),
+      mutateBackend<CourseOut>(`/courses/${courseId}`, 'PATCH', updated),
     onSuccess: (data) => {
       queryClient.setQueryData(['course', courseId], data);
       queryClient.invalidateQueries({ queryKey: ['courses'] });
