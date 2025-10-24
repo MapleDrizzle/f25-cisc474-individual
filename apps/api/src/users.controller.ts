@@ -12,10 +12,10 @@ export class UsersController {
   @Get('me')
   async me(@CurrentUser() auth: JwtUser) {
     console.log(auth);
-    if (!auth || !auth.userId) {
+    if (!auth || !auth.auth0Id) {
       throw new UnauthorizedException();
     }
-    const user = await this.usersService.findOne(auth.userId); // SIR: MAKE SURE TO ADD AUTHENTICATION MODEL IN SCHEMA
+    const user = await this.usersService.findByAuth0Id(auth.auth0Id); // SIR: MAKE SURE TO ADD AUTHENTICATION MODEL IN SCHEMA
     if (!user) {
       throw new Error('User not found');
     }
@@ -25,6 +25,7 @@ export class UsersController {
       name: user.name,
       email: user.email,
       emailVerified: user.emailVerified,
+      role: user.role,
       // optionally roles, picture, etc.
     };
   }

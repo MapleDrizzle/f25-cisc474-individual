@@ -17,18 +17,18 @@ type JwtPayload = {
 };
 
 export interface JwtUser {
-  userId: string;
-  provider: string;
-  providerId: string;
-  sub: string;
+  id: string;
+  auth0Id: string;
+  email?: string;
+  name?: string;
   scopes: string[];
 }
-
+/*
 function splitSub(sub: string) {
   // "provider|id" → { provider, providerId }
   const [provider, ...rest] = sub.split('|');
   return { provider, providerId: rest.join('|') };
-}
+}*/
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -81,7 +81,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     return {
-      userId: user.id,
+      id: user.id,
       auth0Id: sub,
       email: user.email ?? undefined,
       name: user.name ?? undefined,
