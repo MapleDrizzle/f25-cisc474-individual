@@ -11,6 +11,8 @@ type JwtPayload = {
   sub: string; // e.g. "auth0|abc123" or "google-oauth2|xyz"
   iss: string;
   aud: string | string[];
+  name?: string;
+  email?: string;
   scope?: string;
 };
 
@@ -50,42 +52,40 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     // You can see the JWT here
     // console.log('JWT payload', payload);
 
-    const { sub } = payload;
-    const { provider, providerId } = splitSub(sub);
+    const { sub, name, email } = payload;
 
-    // 1) Find Authentication by provider+providerId
-    let auth = await this.prisma.authentication.findFirst({
-      where: { provider, providerId },
-      include: { user: true },
+    // Find the user by auth0Id (sub)
+    let user = await this.prisma.user.findUnique({
+      where: { auth0Id: sub },
     });
 
-    // 2) If missing, create User + Authentication (using whatever claims we have)
-    if (!auth) {
-      const user = await this.prisma.user.create({
+    // If the user doesn't exist, create them
+    if (!user) {
+      user = await this.prisma.user.create({
         data: {
-          authentications: {
-            create: {
-              provider,
-              providerId,
-            },
-          },
+          auth0Id: sub,
+          name: name ?? null,
+          email: email ?? null,
+          role: 'STUDENT', // or default role of your choice
         },
       });
-      auth = { ...auth, user } as any;
     } else {
-      // 3) Update user profile fields opportunistically (don’t overwrite with nulls)
+      // Optionally update user info if changed
       await this.prisma.user.update({
-        where: { id: auth.userId },
-        data: {},
+        where: { id: user.id },
+        data: {
+          name: name ?? user.name,
+          email: email ?? user.email,
+        },
       });
     }
 
     return {
-      userId: auth.userId,
-      provider,
-      providerId,
-      sub,
+      userId: user.id,
+      auth0Id: sub,
+      email: user.email ?? undefined,
+      name: user.name ?? undefined,
       scopes: (payload.scope ?? '').split(' ').filter(Boolean),
-    } as JwtUser;
+    };
   }
 }
