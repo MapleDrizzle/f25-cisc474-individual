@@ -95,11 +95,15 @@ const DEFAULT_USERS= [
     );
 
     const tim = users[0]!;
-    const sarah = users[1]!;
+    //const sarah = users[1]!;
     const laura = users[2]!;
     const jared = users[3]!;
-    const martina = users[9]!;
-    const gary = users[10]!;
+    //const martina = users[9]!;
+    //const gary = users[10]!;
+
+    const martina = users.find(u => u.email === "martina@pear.com")!;
+    const gary = users.find(u => u.email === "gary@grape.com")!;
+    const sarah = users.find(u => u.email === "sarah@strawberry.com")!;
 
     // COURSES
     const algorithms = await prisma.course.upsert({
@@ -109,6 +113,7 @@ const DEFAULT_USERS= [
         code: "CISC320",
         title: "Introduction to Algorithms",
         description: "Learn about fundamental algorithms and data structures.",
+        ownerId: sarah.id,
       },
     });
 
@@ -119,6 +124,7 @@ const DEFAULT_USERS= [
         code: "CISC474",
         title: "Advanced Web Technologies",
         description: "Explore modern web frameworks and full-stack development.",
+        ownerId: gary.id,
       },
     });
 
@@ -129,6 +135,7 @@ const DEFAULT_USERS= [
         code: "CISC361",
         title: "Operating Systems",
         description: "Learn about the principles and design of operating systems.",
+        ownerId: martina.id,
       },
     });
 
@@ -248,7 +255,7 @@ const DEFAULT_USERS= [
       where: { id: "webtech-submission-2"},
       update: {},
       create: {
-        id: "algorithms-submission-2",
+        id: "webtech-submission-2",
         assignmentId: assignment2.id,
         userId: laura.id,
         problems: "Created button, card, and modal components in React.",

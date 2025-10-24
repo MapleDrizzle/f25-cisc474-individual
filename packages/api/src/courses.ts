@@ -16,6 +16,7 @@ export const CourseOut = z.object({
   code: z.string(),
   title: z.string(),
   description: z.string().nullable().optional(),
+  ownerId: z.uuid(),
 });
 export type CourseOut = z.infer<typeof CourseOut>;
 
@@ -24,6 +25,7 @@ export const CourseCreateIn = z.object({
   code: z.string().min(1),
   title: z.string().min(1),
   description: z.string().optional().nullable(),
+  ownerId: z.uuid(),
 });
 export type CourseCreateIn = z.infer<typeof CourseCreateIn>;
 
@@ -32,6 +34,7 @@ export const CourseUpdateIn = z.object({
   code: z.string().min(1).optional(),
   title: z.string().min(1).optional(),
   description: z.string().optional().nullable(),
+  ownerId: z.uuid(),
 });
 export type CourseUpdateIn = z.infer<typeof CourseUpdateIn>;
 

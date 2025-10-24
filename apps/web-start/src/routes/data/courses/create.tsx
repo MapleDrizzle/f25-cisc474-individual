@@ -2,27 +2,27 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { mutateBackend } from '../../../integrations/fetcher';
-import type { CourseCreateIn, CourseOut } from '@repo/api';
-// import { useApiMutation, useCurrentUser } from '../../integrations/api'; THIS WILL BE FOR AUTHENTICATION
+import { CourseCreateIn, CourseOut } from '@repo/api';
+import { useApiMutation, useCurrentUser } from '../../../integrations/api'; 
 
 export const Route = createFileRoute('/data/courses/create')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const { data: currentUser } = useCurrentUser();
   const [newName, setNewName] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [newCourseCode, setCourseCode] = useState('');
 
   const queryClient = useQueryClient();
 
-  const mutation = useMutation({
-    mutationFn: (newCourse: CourseCreateIn) => {
-      return mutateBackend<CourseOut>('/courses', 'POST', newCourse);
-    },
-    onSuccess: (data: CourseOut) => {
-      queryClient.setQueryData(['courses', data.id], data);
-    },
+  const mutation = useApiMutation<CourseCreateIn, CourseOut>({
+    endpoint: (variables) => ({
+      path: '/courses',
+      method: 'POST',
+    }),
+    invalidateKeys: [['courses']],
   });
 
   return (
@@ -72,7 +72,7 @@ function RouteComponent() {
                 mutation.mutate({
                   title: newName,
                   description: newDescription,
-                  code: newCourseCode});
+                  code: newCourseCode}); // SIR: ADD OWNERID WHEN UPDATING DATABASE SCHEMA
               }}
             >
               Create Course

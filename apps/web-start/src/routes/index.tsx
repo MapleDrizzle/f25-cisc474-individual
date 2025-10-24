@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from '@tanstack/react-router';
+import LoginButton from '../components/LoginButton';
 
 export const Route = createFileRoute('/')({
   component: Login,
@@ -10,6 +11,7 @@ function Login() {
       <div className="text-center">
         <div className="text-4x1">🍞</div>
            <h1>Welcome! Login please:</h1>
+           <LoginButton />
         </div>
       <input type="text" placeholder="Username" className="w-full border rounded p-2" />
       <input type="password" placeholder="Password" className="w-full border rounded p-2" />

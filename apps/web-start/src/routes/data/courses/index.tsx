@@ -8,7 +8,7 @@ export const Route = createFileRoute('/data/courses/')({
 function Courses() {
   return (
     <div>
-      <h1>Courses</h1>
+      <h1>Courses Page</h1>
         <CoursesList />
         <Link to="/data/courses/create">Create New Course</Link>
     </div>

@@ -17,8 +17,9 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
-  role          Role
+  role          Role      @default(STUDENT)
 
+  coursesOwned  Course[]  @relation("InstructorCourses")
   courses       EnrolledCourse[]
   submissions   Submission[]
   grades        Grade[]
@@ -30,6 +31,9 @@ model Course {
   title         String
   description   String?
   
+  ownerId       String
+  owner         User   @relation("InstructorCourses", fields: [ownerId], references: [id], onDelete: Cascade)
+
   enrollments   EnrolledCourse[]
   assignments   Assignment[]
 }

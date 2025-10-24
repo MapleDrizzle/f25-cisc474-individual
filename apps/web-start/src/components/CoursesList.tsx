@@ -1,41 +1,37 @@
-import { useEffect, useState } from 'react'
-// import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
-import { backendFetcher } from '../integrations/fetcher'
-import { Link } from '@tanstack/react-router';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+import { Link, createFileRoute } from '@tanstack/react-router';
+import { useApiQuery, useCurrentUser } from '../integrations/api';
+import type { CourseOut } from '@repo/api';
 
+// THIS IS ESSENTIALY courses/index.tsx
 type Course = {
   id: string
   title: string
   description: string
 }
 
-export default function CoursesList() {
-  const [courses, setCourses] = useState<Array<Course>>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+export const Route = createFileRoute('/data/courses/')({
+  component: RouteComponent,
+});
 
-  useEffect(() => {
-    async function fetchCourses() {
-      try {
-        const fetchCoursesFn = await backendFetcher<Array<Course>>('/courses')
-        const data = await fetchCoursesFn()
-        setCourses(data)
-      } catch (err: any) {
-        console.error(err)
-        setError(err.message || 'Failed to fetch courses')
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchCourses()
-  }, [])
+export default function RouteComponent() {
+  const { data: user } = useCurrentUser();
+  const query = useApiQuery<Array<CourseOut>>(['courses'], '/courses');
 
-  if (loading) return <p>Loading courses...</p>;
-  if (error) return <p className="text-red-600">{error}</p>
+  const { data, refetch, error, showLoading } = query;
 
+   if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (showLoading) return <div>Loading...</div>;
+
+  if (!data || data.length === 0) {
+    return <div>No courses found.</div>;
+  }
   return (
     <ul>
-      {courses.map((course) => (
+      {data.map((course) => (
         <li key={course.id}>
           <strong>{course.title}</strong> — {course.description}
           <div> 
@@ -43,14 +39,14 @@ export default function CoursesList() {
                 to="/data/courses/edit/$courseId"
                 params={{ courseId: course.id }}
               >
-                Edit Course
+                Edit Course 
               </Link>
               |
               <Link
                 to="/data/courses/delete/$courseId"
                 params={{ courseId: course.id }}
               >
-                Delete Course
+                 Delete Course
               </Link>
           </div>
         </li>
