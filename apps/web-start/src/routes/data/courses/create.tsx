@@ -72,7 +72,8 @@ function RouteComponent() {
                 mutation.mutate({
                   title: newName,
                   description: newDescription,
-                  code: newCourseCode}); // SIR: ADD OWNERID WHEN UPDATING DATABASE SCHEMA
+                  code: newCourseCode,
+                  ownerId: currentUser?.id || '',}); // SIR: ADDED OWNERID WHEN UPDATING DATABASE SCHEMA
               }}
             >
               Create Course

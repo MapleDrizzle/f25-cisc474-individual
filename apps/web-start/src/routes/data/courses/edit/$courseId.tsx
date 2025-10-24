@@ -23,7 +23,7 @@ function RouteComponent() {
 
   const mutation = useMutation({
     mutationFn: (updated: CourseUpdateIn) =>
-      mutateBackend<CourseOut>(`/courses/${courseId}`, 'PATCH', updated),
+      mutateBackend<CourseUpdateIn, CourseOut>(`/courses/${courseId}`, 'PATCH', updated), // SIR: ADDED THIS
     onSuccess: (data) => {
       queryClient.setQueryData(['course', courseId], data);
       queryClient.invalidateQueries({ queryKey: ['courses'] });
@@ -50,7 +50,10 @@ function RouteComponent() {
       />
       <button
         onClick={() =>
-          mutation.mutate({ title, description })
+          mutation.mutate({
+            title, description,
+            ownerId: '' // SIR: ADDED THIS
+          })
         }
       >
         Save Changes
