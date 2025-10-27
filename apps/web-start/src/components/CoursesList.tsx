@@ -40,11 +40,10 @@ export default function RouteComponent() {
             >
               {course.title} - {course.code}
             </Link>
-          <div className="mt-2 flex gap-2 text-sm"> 
+          <div> 
               <Link
                 to="/data/courses/edit/$courseId"
                 params={{ courseId: course.id }}
-                className="text-blue-600 hover:underline"
               >
                 Edit Course 
               </Link>
@@ -52,7 +51,6 @@ export default function RouteComponent() {
               <Link
                 to="/data/courses/delete/$courseId"
                 params={{ courseId: course.id }}
-                className="text-red-600 hover:underline"
               >
                  Delete Course
               </Link>
