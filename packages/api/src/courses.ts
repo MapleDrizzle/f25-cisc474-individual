@@ -43,8 +43,3 @@ export const CoursesListFilter = Pagination.extend({
   ownerId: z.string().uuid().optional(),
   nameLike: z.string().optional(),
 });
-
-export const CourseDelete = z.object({
-  id: z.int(),
-});
-export type CourseDelete = z.infer<typeof CourseDelete>;

@@ -31,7 +31,11 @@ export class CoursesController {
 
   @UseGuards(AuthGuard('jwt'))
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: CourseUpdateIn, @CurrentUser() user: JwtUser) {
+  update(
+    @Param('id') id: string,
+    @Body() body: CourseUpdateIn,
+    @CurrentUser() user: JwtUser,
+  ) {
     return this.coursesService.update(id, body, user.userId);
   }
 
