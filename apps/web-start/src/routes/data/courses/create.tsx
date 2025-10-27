@@ -2,7 +2,9 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useApiMutation, useCurrentUser } from '../../../integrations/api'; 
+import FooterNav from "../../../components/FooterNav"
 import type { CourseCreateIn, CourseOut } from '@repo/api';
+
 
 export const Route = createFileRoute('/data/courses/create')({ // FORM TO CREATE COURSE
   component: RouteComponent,
@@ -81,6 +83,9 @@ function RouteComponent() {
           <hr></hr>
           <div>
             <a href="/data/courses/">Back to Courses</a>
+          </div>
+          <div className="footer mt-auto w-full">
+                    <FooterNav />
           </div>
         </>
       )}

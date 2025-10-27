@@ -30,7 +30,7 @@ export default function RouteComponent() {
     return <div>No courses found.</div>;
   }
   return (
-    <ul>
+    <ul className="space-y-4">
       {data.map((course) => (
         <li key={course.id}>
           <Link
@@ -38,9 +38,9 @@ export default function RouteComponent() {
               params={{ courseId: course.id }}
               className="panel"
             >
-              {course.title}
+              {course.title} - {course.code}
             </Link>
-          <div> 
+          <div className="mt-2 flex gap-2 text-sm"> 
               <Link
                 to="/data/courses/edit/$courseId"
                 params={{ courseId: course.id }}

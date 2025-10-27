@@ -7,14 +7,10 @@ export const Route = createFileRoute('/')({
 
 function Login() {
   return (
-    <div className="max-w-sm mx-auto">
-      <div className="text-center">
-        <div className="text-4x1">🍞</div>
-           <h1>Welcome! Login please:</h1>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[var(--background)] text-center">
+      <div className="w-full max-w-sm bg-[var(--panel)] rounded-2xl p-6 shadow-lg">
+           <h1>Welcome to Baking Sheet! 🍞</h1>
            <LoginButton />
-        </div>
-      <input type="text" placeholder="Username" className="w-full border rounded p-2" />
-      <input type="password" placeholder="Password" className="w-full border rounded p-2" />
       <ul className="w-full space-y-2 text-center">
         <li>
           <Link to="/student">
@@ -32,6 +28,7 @@ function Login() {
           </Link>
         </li>
       </ul>
+      </div>
     </div>
   );
 }
