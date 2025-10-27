@@ -1,7 +1,6 @@
 import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { useApiQuery, useCurrentUser } from '../integrations/api';
-import LoginButton from './LoginButton';
 import type { CourseOut } from '@repo/api';
 
 // THIS IS ESSENTIALY courses/index.tsx
@@ -16,27 +15,16 @@ export const Route = createFileRoute('/data/courses/')({
 });
 
 export default function RouteComponent() {
-  const { data: user, isLoading: userLoading } = useCurrentUser();
+  const { data: user } = useCurrentUser();
+  const query = useApiQuery<Array<CourseOut>>(['courses'], '/courses');
 
-  if (userLoading) return <div>Loading user...</div>; // SIR: ADDED THIS HELPFUL PAGE TO CHECK IF USER IS LOGGED IN
-  if (!user) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen text-center">
-        <h1 className="text-2xl font-bold mb-4">You're not logged in!</h1>
-        <p className="mb-6">Please log in to view your courses.</p>
-        <LoginButton /> 
-      </div>
-    );
-  }
-  const query = useApiQuery<Array<CourseOut>>(['courses'], '/courses' );
+  const { data, refetch, error, showLoading } = query;
 
-  const { data, error, showLoading } = query;
-
-  if (error) {
+   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
-  if (showLoading) return <div>Loading courses...</div>;
+  if (showLoading) return <div>Loading...</div>;
 
   if (!data || data.length === 0) {
     return <div>No courses found.</div>;
