@@ -31,13 +31,13 @@ export class CoursesController {
 
   @UseGuards(AuthGuard('jwt'))
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: CourseUpdateIn) {
-    return this.coursesService.update(id, body);
+  update(@Param('id') id: string, @Body() body: CourseUpdateIn, @CurrentUser() user: JwtUser) {
+    return this.coursesService.update(id, body, user.userId);
   }
 
   @UseGuards(AuthGuard('jwt'))
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.coursesService.delete(id);
+  delete(@Param('id') id: string, @CurrentUser() user: JwtUser) {
+    return this.coursesService.delete(id, user.userId);
   }
 }
