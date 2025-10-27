@@ -36,7 +36,7 @@ export default function RouteComponent() {
           <Link
               to="/data/courses/$courseId"
               params={{ courseId: course.id }}
-              className="panel"
+              className="panel block"
             >
               {course.title} - {course.code}
             </Link>
@@ -44,6 +44,7 @@ export default function RouteComponent() {
               <Link
                 to="/data/courses/edit/$courseId"
                 params={{ courseId: course.id }}
+                className="text-blue-600 hover:underline"
               >
                 Edit Course 
               </Link>
@@ -51,6 +52,7 @@ export default function RouteComponent() {
               <Link
                 to="/data/courses/delete/$courseId"
                 params={{ courseId: course.id }}
+                className="text-red-600 hover:underline"
               >
                  Delete Course
               </Link>

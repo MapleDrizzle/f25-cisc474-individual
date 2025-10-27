@@ -14,7 +14,7 @@ function Login() {
       <ul className="w-full space-y-2 text-center">
         <li>
           <Link to="/student">
-            Student Dashboard
+            Dashboard Overview
           </Link>
         </li>
         <li>
@@ -25,6 +25,11 @@ function Login() {
         <li>
           <Link to="/administrator">
             Administrator Dashboard
+          </Link>
+        </li>
+        <li>
+          <Link to="/data/courses">
+            Student Dashboard
           </Link>
         </li>
       </ul>
