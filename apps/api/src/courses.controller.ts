@@ -25,7 +25,7 @@ export class CoursesController {
   @UseGuards(AuthGuard('jwt'))
   @Post()
   create(@Body() body: CourseCreateIn, @CurrentUser() user: JwtUser) {
-    body.ownerId = user.id; // set ownerId from authenticated user SIR: UPDATE DATABASE SCHEMA
+    body.ownerId = user.userId; // set ownerId from authenticated user SIR: UPDATE DATABASE SCHEMA
     return this.coursesService.create(body);
   }
 

@@ -6,11 +6,9 @@ import { User, Prisma } from '@repo/database/generated/client';
 export class UsersService {
     constructor(private prisma: PrismaService) {} // specific row given an id
 
-    async findOne(
-        userWhereUniqueInput: Prisma.UserWhereUniqueInput,
-    ): Promise<User | null> {
-        return this.prisma.user.findUnique({
-            where: userWhereUniqueInput,
+    async findOne(id: string): Promise<User | null> {
+        return this.prisma.user.findFirst({
+            where: { id }
         });
     }
     
@@ -21,11 +19,7 @@ export class UsersService {
     async findByEmail(email: string) {
         return this.prisma.user.findFirst({ where: { email } });
     }
-    async findByAuth0Id(auth0Id: string) {
-        return this.prisma.user.findUnique({
-          where: { auth0Id },
-    });
-    }
+
 
     async createUser(data: Prisma.UserCreateInput): Promise<User> {
         return this.prisma.user.create({

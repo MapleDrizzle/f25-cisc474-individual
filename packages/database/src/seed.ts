@@ -89,7 +89,7 @@ const DEFAULT_USERS= [
         prisma.user.upsert({
           where: { email: user.email ?? "" },
           update: { name: user.name ?? null, role: user.role,},
-          create: { name: user.name ?? null, email: user.email ?? null, role: user.role, auth0Id: null,},
+          create: { name: user.name ?? null, email: user.email ?? null, role: user.role,},
         })
       )
     );

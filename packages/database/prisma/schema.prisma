@@ -14,16 +14,24 @@ generator client {
 
 model User {
   id            String    @id @default(cuid())
-  auth0Id       String?   @unique
-  name          String?
+  name          String? // removed auth0Id
   email         String?   @unique
   emailVerified DateTime?
   role          Role      @default(STUDENT)
 
+  authentications   Authentication[]
   coursesOwned  Course[]  @relation("InstructorCourses")
   courses       EnrolledCourse[]
   submissions   Submission[]
   grades        Grade[]
+}
+
+model Authentication {
+  id         String @id @default(uuid())
+  user       User   @relation(fields: [userId], references: [id])
+  userId     String
+  provider   String
+  providerId String
 }
 
 model Course {

@@ -1,11 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { mutateBackend } from '../../../integrations/fetcher';
 import { CourseCreateIn, CourseOut } from '@repo/api';
 import { useApiMutation, useCurrentUser } from '../../../integrations/api'; 
 
-export const Route = createFileRoute('/data/courses/create')({
+export const Route = createFileRoute('/data/courses/create')({ // FORM TO CREATE COURSE
   component: RouteComponent,
 });
 
