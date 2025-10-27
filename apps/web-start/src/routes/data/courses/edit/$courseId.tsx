@@ -1,69 +1,75 @@
-import { createFileRoute, useParams } from '@tanstack/react-router'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { createFileRoute, useParams } from '@tanstack/react-router';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { backendFetcher, mutateBackend } from '../../../../integrations/fetcher';
+import { useApiMutation, useCurrentUser } from '../../../../integrations/api';
 import type { CourseOut, CourseUpdateIn } from '@repo/api';
+import { backendFetcher } from '../../../../integrations/fetcher';
 
 export const Route = createFileRoute('/data/courses/edit/$courseId')({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   const { courseId } = useParams({ from: '/data/courses/edit/$courseId' });
   const queryClient = useQueryClient();
+  const { data: currentUser } = useCurrentUser();
 
-  // Fetch existing course data
   const { data: course, isLoading } = useQuery({
     queryKey: ['course', courseId],
     queryFn: backendFetcher<CourseOut>(`/courses/${courseId}`),
   });
 
-  const [title, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const mutation = useMutation({
-    mutationFn: (updated: CourseUpdateIn) =>
-      mutateBackend<CourseUpdateIn, CourseOut>(`/courses/${courseId}`, 'PATCH', updated), // SIR: ADDED THIS
-    onSuccess: (data) => {
-      queryClient.setQueryData(['course', courseId], data);
-      queryClient.invalidateQueries({ queryKey: ['courses'] });
-    },
+  const mutation = useApiMutation<CourseUpdateIn, CourseOut>({
+    endpoint: (variables) => ({
+      path: `/courses/${courseId}`,
+      method: 'PATCH',
+    }),
+    invalidateKeys: [['courses']],
   });
 
   if (isLoading) return <p>Loading course...</p>;
   if (!course) return <p>Course not found</p>;
 
+  const handleSave = () => {
+    mutation.mutate({
+      title: title || course.title,
+      description: description || course.description || '',
+      ownerId: currentUser?.id ?? course.ownerId,
+    });
+  };
+
   return (
     <div>
       <h1>Edit Course: {course.title}</h1>
+
       <input
         type="text"
-        placeholder="Course name"
+        placeholder="Course title"
         value={title || course.title}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)}
       />
+
       <input
         type="text"
         placeholder="Course description"
         value={description || course.description || ''}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button
-        onClick={() =>
-          mutation.mutate({
-            title, description,
-            ownerId: '' // SIR: ADDED THIS
-          })
-        }
-      >
-        Save Changes
+
+      <button onClick={handleSave} disabled={mutation.isPending}>
+        {mutation.isPending ? 'Saving...' : 'Save Changes'}
       </button>
-      <hr></hr>
+
+      <hr />
       <div>
         <a href="/data/courses/">Back to Courses</a>
       </div>
+
       {mutation.isSuccess && <p>✅ Course updated!</p>}
-      {mutation.isError && <p>❌ Failed to update course</p>}
+      {mutation.isError && <p>❌ Error updating course: {mutation.error.message}</p>}
     </div>
   );
 }
