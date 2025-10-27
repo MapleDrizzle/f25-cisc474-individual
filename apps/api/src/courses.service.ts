@@ -34,6 +34,6 @@ export class CoursesService {
   }
 
   async delete(id: string) {
-    return this.prisma.course.delete({ where: { id } });
+    return this.prisma.course.delete({ where: { id } }); // just so i can push again
   }
 }
