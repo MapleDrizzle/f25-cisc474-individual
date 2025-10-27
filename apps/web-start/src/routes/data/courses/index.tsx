@@ -12,7 +12,7 @@ function Courses() {
     <div>
       <h1>Courses Page</h1>
         <CoursesList />
-        <Link to="/data/courses/create" className="button-submit">Create New Course</Link>
+        <Link to="/data/courses/create" className="button-submit mt-6 inline-block">Create New Course</Link>
         <div className="footer mt-auto w-full">
             <FooterNav />
       </div>
