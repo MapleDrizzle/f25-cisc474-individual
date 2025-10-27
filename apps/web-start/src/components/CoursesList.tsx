@@ -33,7 +33,13 @@ export default function RouteComponent() {
     <ul>
       {data.map((course) => (
         <li key={course.id}>
-          <strong>{course.title}</strong> — {course.description}
+          <Link
+              to="/data/courses/$courseId"
+              params={{ courseId: course.id }}
+              className="panel"
+            >
+              {course.title}
+            </Link>
           <div> 
               <Link
                 to="/data/courses/edit/$courseId"

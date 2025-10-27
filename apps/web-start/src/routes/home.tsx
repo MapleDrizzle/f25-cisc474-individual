@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const Route = createFileRoute('/home')({
@@ -15,8 +15,8 @@ function RouteComponent() {
   return (
     isAuthenticated && (
       <div>
-        User Information: {JSON.stringify(user, null, 2)}.
-        <a href="/data/courses/">Back to Courses</a>
+        <h1>Welcome, {user?.name}!</h1>
+        <a href="/data/courses/">View my Courses</a>
       </div>
     )
   );

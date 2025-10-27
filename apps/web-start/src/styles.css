@@ -105,7 +105,7 @@ p {
 
 .button-submit {
   background: var(--button);
-  color: black;
+  color: rgb(19, 105, 8);
   font-weight: bold;
   padding: 0.75rem 1.25rem;
   border-radius: 0.75rem;

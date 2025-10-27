@@ -1,7 +1,9 @@
 import { Link, createFileRoute } from '@tanstack/react-router';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 import { useApiQuery } from '../../../integrations/api';
+import BackButton from "../../../components/BackButton"
 import type { CourseOut } from '@repo/api';
+
 
 export const Route = createFileRoute('/data/courses/$courseId')({
   component: RouteComponent,
@@ -38,6 +40,7 @@ function RouteComponent() {
       <div>Description: {course.description}</div>
       <div>Owner ID: {course.ownerId}</div>
       <div>Course ID: {course.id}</div>
+      <div><BackButton /></div>
     </div>
   );
 }

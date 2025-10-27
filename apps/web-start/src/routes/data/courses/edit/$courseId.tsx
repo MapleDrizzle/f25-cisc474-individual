@@ -2,8 +2,8 @@ import { createFileRoute, useParams } from '@tanstack/react-router';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useApiMutation, useCurrentUser } from '../../../../integrations/api';
-import type { CourseOut, CourseUpdateIn } from '@repo/api';
 import { backendFetcher } from '../../../../integrations/fetcher';
+import type { CourseOut, CourseUpdateIn } from '@repo/api';
 
 export const Route = createFileRoute('/data/courses/edit/$courseId')({
   component: RouteComponent,
